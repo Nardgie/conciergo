@@ -3,13 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Geolocation API test</title>
+  <title>Event Finder</title>
 </head>
 <body>
 
-  <h1>Geolocation API Test</h1>
+  <h1>Event Finder</h1>
 
   <button onclick="testGeolocationAPI()">Test Geolocation API</button>
+
+  <h1>Ticketmaster API Test</h1>
+
+  <label for="apiKeyInput">Enter Ticketmaster API Key:</label>
+  <input type="text" id="apiKeyInput" placeholder="Enter API key">
+  <button onclick="testTicketmasterAPI()">Test API Key</button>
+
+  <h1>Find Events Near You</h1>
+
+  <button onclick="getUserLocationAndFetchTickets()">Find Tickets</button>
+
+  <div id="ticketResults"></div>
 
   <script src="./joshua.js"></script>
 </body>
