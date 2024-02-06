@@ -7,9 +7,9 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
 
-    
-    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./bulma.css">
+    <link rel="stylesheet" href="./style.css">
+    
 
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -41,7 +41,7 @@
 
 </head>
 <body>
-    nav class="navbar is-dark">
+    <nav class="navbar is-dark">
         <div class="navbar-brand">
             <a class="navbar-item" href="https://bulma.io">
                 <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
@@ -59,10 +59,7 @@
                     Home
                 </a>
                 <a class="navbar-item" href="https://bulma.io/">
-                    Band
-                </a>
-                <a class="navbar-item" href="https://bulma.io/">
-                    Tour
+                    Concerts Near You
                 </a>
                 <a class="navbar-item" href="https://bulma.io/">
                     Contact
@@ -96,6 +93,13 @@
             </div>
         </div>
     </nav>
+
+    <section class="hero">
+        <figure class="image">
+            <img src="https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+        </figure>
+    </section>
+
     <p id="location">location there</p>
     <div id="map">
 
@@ -112,7 +116,7 @@
 
     <script src="./script.js"></script>
     
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY"></script>
     
     <!-- <script src="./script.js"></script> -->
 </body>
