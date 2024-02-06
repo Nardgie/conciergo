@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY&callback=console.debug&libraries=maps,marker&v=beta"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    
+
+    <title>Project One Title Pending</title>
+    <style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    gmp-map {
+        height: 80%;
+        width: 50%;
+
+    }
+
+      /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+        height: 80%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+    width: 500px;
+    height: 400px;
+    }
+    </style>
+</head>
+<body>
+    <p id="location">location there</p>
+    <div id="map">
+
+    </div>
+    <gmp-map center="28.561222076416016,-81.48899841308594" zoom="14" map-id="DEMO_MAP_ID">
+        <gmp-advanced-marker position="28.561222076416016,-81.48899841308594" title="My location"></gmp-advanced-marker>
+    </gmp-map>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Nearby Events</h1>
+            <div id="events" class="columns is-multiline"></div>
+        </div>
+    </section>
+
+    <script src="./script.js"></script>
+    
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY"></script>
+    
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>
