@@ -102,7 +102,12 @@ function showEvents(json) {
         var distance = item.distance;
         var date = new Date(event.dates.start.dateTime).toLocaleDateString();
         var imageUrl = event.images[0].url;
-        var priceRange = `$${event.priceRanges[0].min} - $${event.priceRanges[0].max}`;
+        var priceRange = '';
+        if (event.priceRanges && event.priceRanges.length >  0) {
+    priceRange = `$${event.priceRanges[0].min} - $${event.priceRanges[0].max}`;
+        } else {
+            priceRange = 'Price range not available';
+        }   
         var parkingInfo = venue.parking ? venue.parking.summary : 'Parking information not available';
 
         var eventHtml = `
@@ -173,7 +178,7 @@ function addMarker(map, event) {
     marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
     console.log(marker);
 }
-// var data;
+// var data; 
 
 // function getWeather(lat, lon, callback){
 //     var apiKey = '9fda455ae9137822224a160754647dd2';
