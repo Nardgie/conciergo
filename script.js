@@ -44,7 +44,8 @@ function showPosition(position) {
                         console.log(json.page.totalElements + " events found.");
                         // console.log(response.json)
                         var e = document.getElementById("events");
-                        e.innerHTML = json.page.totalElements + " events found.";
+                        // e.innerHTML = " events found";
+                        // json.page.totalElements + " events found.";
                         showEvents(json);
                         initMap(position, json);
                     },
@@ -111,32 +112,60 @@ function showEvents(json) {
         var parkingInfo = venue.parking ? venue.parking.summary : 'Parking information not available';
 
         var eventHtml = `
-            <article class="media">
-                <figure class="media-left">
-                    <p class="image is-128x128">
+            <div class="tile is-parent carousel-item">
+                <article class="tile is-child box">
+                    <figure class="image">
                         <img src="${imageUrl}" alt="${event.name}">
-                    </p>
-                </figure>
-                <div class="media-content">
-                    <div class="content">
-                        <p>
-                            <strong>${event.name}</strong><br>
-                            <small>${venue.name}, ${venue.city.name}</small><br>
-                            <small>${distance} Miles away</small><br>
-                            <small>${date}</small><br>
-                            <small>Price Range: ${priceRange}</small><br>
-                            <small>${parkingInfo}</small>
-                        </p>
-                    </div>
+                    </figure>
+                    <p class="title is-3">${event.name}</p>
+                    <p class="title is-5">${venue.city.name}, ${venue.state.name}</p>
+                    <p class="subtitle is-4">${date}</p>
                     <nav class="level is-mobile">
-                        <div class="level-right">
+                        <div class="level-item">
                             <a class="button is-info" href="${event.url}" target="_blank">Get Tickets</a>
                         </div>
                     </nav>
-                </div>
-            </article>`;
+                </article>
+            </div>
+        `;
 
-        $("#events").append(eventHtml);
+            // <article class="media">
+            //     <figure class="media-left">
+            //         <p class="image is-128x128">
+            //             <img src="${imageUrl}" alt="${event.name}">
+            //         </p>
+            //     </figure>
+            //     <div class="media-content">
+            //         <div class="content">
+            //             <p>
+            //                 <strong>${event.name}</strong><br>
+            //                 <small>${venue.name}, ${venue.city.name}</small><br>
+            //                 <small>${distance} Miles away</small><br>
+            //                 <small>${date}</small><br>
+            //                 <small>Price Range: ${priceRange}</small><br>
+            //                 <small>${parkingInfo}</small>
+            //             </p>
+            //         </div>
+            //         <nav class="level is-mobile">
+            //             <div class="level-right">
+            //                 <a class="button is-info" href="${event.url}" target="_blank">Get Tickets</a>
+            //             </div>
+            //         </nav>
+            //     </div>
+            // </article>`;
+
+        $(".carousel").append(eventHtml);
+    });
+
+    //init bulma carousel
+    bulmaCarousel.attach(".carousel", {
+        slidesToShow:  1,
+        slidesToScroll:  1,
+        duration: 2000,
+        loop: true,
+        autoplay: false,
+        pagination: true,
+        navigation: true
     });
 }
 
