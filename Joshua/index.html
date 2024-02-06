@@ -3,26 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Event Finder</title>
+  <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.0.4/maps/maps-web.min.js"></script>
+  <title>Music Event Finder</title>
+  <style>
+    /* Add your custom CSS styles here */
+  </style>
 </head>
 <body>
 
-  <h1>Event Finder</h1>
+  <h1>Music Event Finder</h1>
 
-  <button onclick="testGeolocationAPI()">Test Geolocation API</button>
+  <label for="zipcodeInput">Enter Zipcode:</label>
+  <input type="text" id="zipcodeInput" placeholder="Enter zipcode">
+  <button id="searchButton">Search</button>
 
-  <h1>Ticketmaster API Test</h1>
-
-  <label for="apiKeyInput">Enter Ticketmaster API Key:</label>
-  <input type="text" id="apiKeyInput" placeholder="Enter API key">
-  <button onclick="testTicketmasterAPI()">Test API Key</button>
-
-  <h1>Find Events Near You</h1>
-
-  <button onclick="getUserLocationAndFetchTickets()">Find Tickets</button>
-
-  <div id="ticketResults"></div>
-
+  <h1>parking locator</h1>
+  <div id="map"></div>
+  <div id="eventResults"></div>
+  
+  
+  
+  
+  
+  
   <script src="./joshua.js"></script>
 </body>
 </html>
+

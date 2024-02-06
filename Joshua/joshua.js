@@ -1,86 +1,127 @@
-// Function to test Geolocation API
-function testGeolocationAPI() {
-  var apiKey = 'eb42bfdeb6484d1a8511cbf604661531';
-  var apiEndpoint = 'https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey;
+// // Function to fetch geolocation data
+// function fetchGeolocationData(apiKey) {
+//     var apiEndpoint = 'https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey;
 
-  fetch(apiEndpoint)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      console.log('Geolocation API Response:', data);
-      var city = data.city;
-      var country = data.country;
-      var ipAddress = data.ip_address;
-      alert('You are located in ' + city + ', ' + country + '. Your IP address is ' + ipAddress);
-    })
-    .catch(function(error) {
-      console.error('Error fetching geolocation data:', error);
-      alert('Error fetching geolocation data. Please try again.');
-    });
-}
+//     return fetch(apiEndpoint)
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .catch(function (error) {
+//             console.error('Error fetching geolocation data:', error);
+//             throw new Error('Error fetching geolocation data. Please try again.');
+//         });
+// }
 
-// Function to test Ticketmaster API
-function testTicketmasterAPI() {
-  var apiKey = document.getElementById('apiKeyInput').value;
-  var apiUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=' + apiKey;
+// // Function to fetch music events using the entered zipcode
+// function fetchEventsByZipcode(apiKey, zipcode) {
+//     // Include a 50-mile radius in the Ticketmaster API request
+//     var apiUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=' + apiKey +
+//         '&postalCode=' + zipcode + '&radius=50&unit=miles&classificationName=music';
 
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      console.log('Ticketmaster API Response:', data);
-      // Process and display the results on your webpage
-    })
-    .catch(error => {
-      console.error('Error fetching Ticketmaster data:', error);
-      alert('Error fetching Ticketmaster data. Please try again.');
-    });
-}
+//     return fetch(apiUrl)
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .catch(function (error) {
+//             console.error('Error fetching data from Ticketmaster API:', error);
+//             throw new Error('Error fetching data from Ticketmaster API. Please try again.');
+//         });
+// }
 
-// Function to get user location and fetch tickets
-function getUserLocationAndFetchTickets() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var latitude = position.coords.latitude;
-      var longitude = position.coords.longitude;
-      console.log('Latitude:', latitude);
-      console.log('Longitude:', longitude);
-      fetchTickets(latitude, longitude);
-    }, function(error) {
-      console.error('Error getting geolocation:', error.message);
-    });
-  } else {
+// // Function to display event results in the DOM
+// function displayEventResults(events) {
+//     var eventResultsDiv = document.getElementById('eventResults');
+//     eventResultsDiv.innerHTML = ''; // Clear previous results
+
+//     if (events.length === 0) {
+//         eventResultsDiv.innerHTML = '<p>No music events found for the entered zipcode.</p>';
+//     } else {
+//         events.forEach(function (event) {
+//             var eventDiv = document.createElement('div');
+//             eventDiv.innerHTML = '<h2>' + event.name + '</h2>' +
+//                 '<p>' + event.dates.start.localDate + '</p>' +
+//                 '<p>' + event._embedded.venues[0].name + ', ' + event._embedded.venues[0].city.name + '</p>' +
+//                 '<p>' + event.url + '</p>' +
+//                 '<hr>';
+//             eventResultsDiv.appendChild(eventDiv);
+//         });
+//     }
+// }
+
+// // Event listener for the search button
+// document.getElementById('searchButton').addEventListener('click', function () {
+//     var userZipcode = document.getElementById('zipcodeInput').value;
+
+//     // Validate user input 
+//     if (userZipcode && /^[0-9]{5}$/.test(userZipcode)) {
+//         var apiKey = 'DUgo2if0GRISfmK8CVNbZMuc2NAlxRiE'; // Replace with your actual API key
+
+//         // Fetch geolocation data and then fetch music events based on the entered zipcode
+//         fetchGeolocationData(apiKey)
+//             .then(function (geolocationData) {
+//                 console.log('Geolocation API Response:', geolocationData);
+//                 return fetchEventsByZipcode(apiKey, userZipcode);
+//             })
+//             .then(function (ticketmasterData) {
+//                 console.log('Ticketmaster API Response:', ticketmasterData);
+//                 // Process the API responses and display event information
+//                 displayEventResults(ticketmasterData._embedded.events);
+//             })
+//             .catch(function (error) {
+//                 alert(error.message);
+//             });
+//     } else {
+//         alert('Invalid or empty zipcode. Please try again.');
+//     }
+// });
+
+
+// Replace 'YOUR_API_KEY' with your TomTom API key
+var apiKey = 'Az0CcjRjmCUkzBBV4xRK1BwBC7IeHuQI';
+
+// Initialize the map
+var map = tt.map({
+    key: apiKey,
+    container: 'map',
+    style: 'tomtom://vector/1/basic-main',
+    center: [0, 0], // Default center, will be updated with user's location
+    zoom: 15
+});
+
+// Get user's geolocation
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // Update map center to user's location
+            map.setCenter([longitude, latitude]);
+
+            // Call the TomTom Parking Availability API
+            fetchParkingAvailability([longitude, latitude]);
+        },
+        function(error) {
+            console.error('Error getting geolocation:', error);
+        }
+    );
+} else {
     console.error('Geolocation is not supported by this browser.');
-  }
 }
 
-// Function to fetch tickets using latitude and longitude
-function fetchTickets(latitude, longitude) {
-  var apiKey = 'DUgo2if0GRISfmK8CVNbZMuc2NAlxRiE';
-  var apiUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=' + apiKey + '&latlong=' + latitude + ',' + longitude;
+// Function to fetch parking availability using TomTom API
+function fetchParkingAvailability(location) {
+    var apiUrl = 'https://api.tomtom.com/search/2/parkingAvailability/' + location[1] + ',' + location[0] + '.json?key=' + apiKey;
 
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      console.log('Ticketmaster API Response:', data);
-      // Process the API response and display ticket information
-      displayTicketResults(data._embedded.events);
-    })
-    .catch(error => console.error('Error fetching data from Ticketmaster API:', error));
-}
-
-// Function to display ticket results in the DOM
-function displayTicketResults(events) {
-  var ticketResultsDiv = document.getElementById('ticketResults');
-  ticketResultsDiv.innerHTML = ''; // Clear previous results
-
-  events.forEach(function(event) {
-    var eventDiv = document.createElement('div');
-    eventDiv.innerHTML = '<h2>' + event.name + '</h2>' +
-      '<p>' + event.dates.start.localDate + '</p>' +
-      '<p>' + event._embedded.venues[0].name + ', ' + event._embedded.venues[0].city.name + '</p>' +
-      '<p>' + event.url + '</p>' +
-      '<hr>';
-    ticketResultsDiv.appendChild(eventDiv);
-  });
+    fetch(apiUrl)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log('Parking Availability API Response:', data);
+            // Process and display parking availability data as needed
+        })
+        .catch(function(error) {
+            console.error('Error fetching parking availability data:', error);
+        });
 }
