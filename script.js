@@ -7,8 +7,8 @@ var venue;
 // }
 
 function showPosition(data) {
-    var apiKey = 'f626ccfbd488461d9c902410259022da';
-    // API endpoint for geolocation
+    // var apiKey = 'f626ccfbd488461d9c902410259022da';
+    // // API endpoint for geolocation
     // var apiEndpoint = 'https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey;
 
     // Make a request to the API
