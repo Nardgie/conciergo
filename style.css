@@ -12,8 +12,8 @@ p {
 }
 
 main {
-    background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    /* background: url("/Users/nardge/Desktop/geo/site1/Site1/images/pexels-photo-801863.jpeg"); */
+    /* background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
+    background: url("./purpleClubbing.png");
     background-size: cover;
     margin: 0;
 }
@@ -23,8 +23,20 @@ body {
     border: 0;
 }
 
+.navbar-item {
+    font-family: "Orbitron", sans-serif;
+    color: #000;
+
+}
+
+.navbar .button {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+} 
+
 .navbar-brand .navbar-item {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: "Orbitron", sans-serif;
+    color: #000;
     font-size: 30px;
     letter-spacing: 1.5px;
 }
