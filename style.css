@@ -3,6 +3,10 @@
     height: 400px;
 }
 
+#location{
+    display: none;
+}
+
 p {
     color: white;
 }
@@ -10,15 +14,15 @@ p {
 main {
     background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-size: cover;
-
+    margin: 0;
 }
 
-.section {
-    /* background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
-    
-    /* background-color: black; */
-    background-size: cover;
+body {
+    margin: 0;
+    border: 0;
 }
+
+
 
 .carousel-item .tile {
     background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
@@ -28,7 +32,7 @@ main {
 
 #events {
     width: 600px;
-    height: 600px;
+    height: 900px;
 }
 
 .button {
@@ -37,7 +41,7 @@ main {
 }
 
 .carousel {
-    height: 1000px;
+    height: 500px;
 }
 
 /* cards */
@@ -54,6 +58,7 @@ main {
     height: 500px;
     /* Adjust the height as needed */
     margin: 0 auto;
+    border-radius: 50px;
 }
 
 .carousel-item .card .card-image {
@@ -111,15 +116,19 @@ main {
     object-fit: cover;
 } */
 
-.carousel .slide .slider-pagination .slider-page {
-    bottom: 5px;
-    color: white;
+.carousel .slider .slider-pagination {
+    bottom: 0px !important;
+    background: beige;
+    border-radius: 50px;
+    width: 50%;
+    margin: 0 auto;
+    border-top: 100px;
+    position: relative;
 }
 
 .carousel .slider .slider-pagination .slider-page {
-    background-color: rgba(235, 8, 8, 0.5);
+    background-color: rgba(235, 8, 8, 0.5) !important;
     /* Semi-transparent white */
-    background: beige;
     border-radius: 50%;
     /* Round the corners */
 }

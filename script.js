@@ -2,16 +2,11 @@ var gloablLat;
 var globalLon;
 var venue;
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-        var x = document.getElementById("location");
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
+// function getLocation() {
+//     navigator.geolocation.getCurrentPosition(showPosition, showError);
+// }
 
-function showPosition(position) {
+function showPosition(data) {
     var apiKey = 'f626ccfbd488461d9c902410259022da';
     // API endpoint for geolocation
     var apiEndpoint = 'https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey;
@@ -36,7 +31,7 @@ function showPosition(position) {
 
         $.ajax({
             type:"GET",
-            url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=9xDaR1A6yRioMl6Xk2GG6ccydbFsnQZp&latlong="+latlon,
+            url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=9xDaR1A6yRioMl6Xk2GG6ccydbFsnQZp&latlong="+latlon+"&radius=50&unit=miles&size=25",
             async:true,
             dataType: "json",
             success: function(json) {
@@ -46,8 +41,9 @@ function showPosition(position) {
                         var e = document.getElementById("events");
                         // e.innerHTML = " events found";
                         // json.page.totalElements + " events found.";
+                        // showPosition();
                         showEvents(json);
-                        initMap(position, json);
+                        initMap(data, json);
                     },
             error: function(xhr, status, err) {
                         console.log(err);
@@ -93,9 +89,14 @@ function showEvents(json) {
 
     // Sort events by distance
     eventsWithDistances.sort(function(a, b) {
-        return a.distance - b.distance;
+        return parseFloat(a.distance) - parseFloat(b.distance);
     });
 
+    //sort by date
+    eventsWithDistances.sort(function(a, b) {
+            return new Date(a.event.dates.start.dateTime) - new Date(b.event.dates.start.dateTime);
+        });
+    
     // Append sorted events to the DOM
     eventsWithDistances.forEach(function(item) {
         var event = item.event;
@@ -121,6 +122,7 @@ function showEvents(json) {
                     </div>
                     <div class="card-content is-flex-wrap-wrap">
                         <p class="title is-4">${event.name}</p>
+                        <p class="title is-6">${venue.name}</p>
                         <p class="title is-6">${venue.city.name}, ${venue.state.name}</p>
                         <p class="subtitle is-6">${date}</p>
                     </div>
@@ -167,11 +169,15 @@ function showEvents(json) {
     bulmaCarousel.attach(".carousel", {
         slidesToShow:  1,
         slidesToScroll:  1,
-        duration: 2000,
+        duration: 500,
         loop: true,
         autoplay: true,
+        autoplaySpeed: 5000,
+        infinite: true,
         pagination: true,
-        navigation: true
+        navigation: true,
+        navigationSwipe: true,
+        pauseOnHover: false
     });
 }
 
@@ -197,7 +203,7 @@ function initMap(position, json) {
     var mapDiv = document.getElementById('map');
     var map = new google.maps.Map(mapDiv, {
         center: {lat: gloablLat, lng: globalLon},
-        zoom: 10
+        zoom: 11
     });
 
     for(var i=0; i<json.page.size; i++) {
@@ -265,8 +271,7 @@ function addMarker(map, event) {
 // //     // Add the weather element to the DOM where you want to display the forecast
 // // });
 
-
-getLocation();
+showPosition();
 // getWeather(venue.location.latitude, venue.location.longitude)
 
 
