@@ -113,19 +113,25 @@ function showEvents(json) {
 
         var eventHtml = `
             <div class="tile is-parent carousel-item">
-                <article class="tile is-child box">
-                    <figure class="image">
-                        <img src="${imageUrl}" alt="${event.name}">
-                    </figure>
-                    <p class="title is-3">${event.name}</p>
-                    <p class="title is-5">${venue.city.name}, ${venue.state.name}</p>
-                    <p class="subtitle is-4">${date}</p>
-                    <nav class="level is-mobile">
-                        <div class="level-item">
-                            <a class="button is-info" href="${event.url}" target="_blank">Get Tickets</a>
-                        </div>
-                    </nav>
-                </article>
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                                <img src="${imageUrl}" alt="${event.name}">
+                            </figure>
+                    </div>
+                    <div class="card-content is-flex-wrap-wrap">
+                        <p class="title is-4">${event.name}</p>
+                        <p class="title is-6">${venue.city.name}, ${venue.state.name}</p>
+                        <p class="subtitle is-6">${date}</p>
+                    </div>
+                    <footer class="card-footer is-centered">
+                        <nav class="level is-mobile">
+                            <div class="level-item">
+                                <a class="button is-info card-footer-item" href="${event.url}" target="_blank">Get Tickets</a>
+                            </div>
+                        </nav>
+                    </footer>
+                </div>
             </div>
         `;
 
@@ -163,7 +169,7 @@ function showEvents(json) {
         slidesToScroll:  1,
         duration: 2000,
         loop: true,
-        autoplay: false,
+        autoplay: true,
         pagination: true,
         navigation: true
     });

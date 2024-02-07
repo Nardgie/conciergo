@@ -3,58 +3,123 @@
     height: 400px;
 }
 
+p {
+    color: white;
+}
+
+main {
+    background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
+
+}
+
 .section {
-    height: 1000px;
-    background-color: black;
+    /* background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
+    
+    /* background-color: black; */
     background-size: cover;
 }
 
 .carousel-item .tile {
     background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-size: cover;
+    background-color: aliceblue;
 }
 
 #events {
-    width: 700px;
-    height: 700px;
-    background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    width: 600px;
+    height: 600px;
 }
 
 .button {
+    border-top: 20px;
     border-bottom: 20px;
 }
 
 .carousel {
-    height: 500px;
+    height: 1000px;
 }
+
+/* cards */
+/* .carousel-item .card .card-content  */
+    /* background-image: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover; */
+    /* Adjust the height as needed */
+    /* padding: 1rem; */
+
+
+.carousel-item .card {
+    width: 400px;
+    /* Adjust the width as needed */
+    height: 500px;
+    /* Adjust the height as needed */
+    margin: 0 auto;
+}
+
+.carousel-item .card .card-image {
+    height: 200px;
+    /* Adjust the height as needed */
+    overflow: hidden;
+    /* Hide any part of the image that exceeds the bounds */
+}
+
+.carousel-item .card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Cover the area of the figure while maintaining aspect ratio*/
+}
+
+.carousel-item .card .card-footer {
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .carousel-item .card .card-content { */
+    /* height: 100px; */
+    /* Adjust the height as needed */
+    /* overflow: auto; */
+    /* Make the content scrollable if it overflows */
+
+/* } */
+
+
+
 
 .carousel-item .tile {
     height: 800px;
     width: 100%;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-self: space-between; */
 }
 
-.carousel-item .tile figure.image {
+/* .carousel-item .tile figure.image {
     flex-shrink: 0;
     height: 70%;
-}
+    width: 50%;
+    overflow: hidden;
+} */
 
-.carousel-item .tile figure.image img {
+/* .carousel-item .tile figure.image img {
     max-height: 100%;
     max-width: 100%;
     object-fit: cover;
-}
+} */
 
 .carousel .slide .slider-pagination .slider-page {
-    bottom: 20px;
-    color: black;
+    bottom: 5px;
+    color: white;
 }
 
 .carousel .slider .slider-pagination .slider-page {
     background-color: rgba(235, 8, 8, 0.5);
     /* Semi-transparent white */
+    background: beige;
     border-radius: 50%;
     /* Round the corners */
 }

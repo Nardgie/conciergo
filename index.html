@@ -95,47 +95,49 @@
         </div>
     </nav>
 
-    <section class="hero">
+    <!-- <section class="hero">
         <figure class="image">
             <img src="https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
         </figure>
-    </section>
+    </section> -->
+    <main>
+        <section class="section">
+            <div class="container has-text-centered" id="events">
+                <h1 class="title">Concerts Near You</h1>
+                <div class="carousel" data-autoplay="false" data-pagination="true" data-navigation="true">
 
-    <p id="location">location there</p>
-    <div id="map">
-
-    </div>
-    <gmp-map center="28.561222076416016,-81.48899841308594" zoom="14" map-id="DEMO_MAP_ID">
-        <gmp-advanced-marker position="28.561222076416016,-81.48899841308594" title="My location"></gmp-advanced-marker>
-    </gmp-map>
-    <section class="section">
-        <div class="container has-text-centered" id="events">
-            <h1 class="title">Concerts Near You</h1>
-            <div class="carousel" data-autoplay="false" data-pagination="true" data-navigation="true">
-
-            </div>
-
-            <!-- <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <figure class="image">
-                            <img src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                        </figure>
-                        <p class="title">New York</p>
-                        <p class="subtitle">Fri 27 Nov 2016</p>
-                        <a class="button">Buy Tickets</a>
-                    </article>
                 </div>
-            </div> -->
-        </div>
-    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
-    <script src="./script.js"></script>
+                <!-- <div class="tile is-ancestor">
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <figure class="image">
+                                <img src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                            </figure>
+                            <p class="title">New York</p>
+                            <p class="subtitle">Fri 27 Nov 2016</p>
+                            <a class="button">Buy Tickets</a>
+                        </article>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+    
+        <p id="location">location there</p>
+        <div id="map">
+
+        </div>
+        <gmp-map center="28.561222076416016,-81.48899841308594" zoom="14" map-id="DEMO_MAP_ID">
+            <gmp-advanced-marker position="28.561222076416016,-81.48899841308594" title="My location"></gmp-advanced-marker>
+        </gmp-map>
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+        <script src="./script.js"></script>
     
     <!--uncomment this later-->
     <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY"></script> -->
-    
+    </main>
     <!-- <script src="./script.js"></script> -->
 </body>
 </html>
