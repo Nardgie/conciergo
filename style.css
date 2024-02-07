@@ -13,6 +13,7 @@ p {
 
 main {
     background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    /* background: url("/Users/nardge/Desktop/geo/site1/Site1/images/pexels-photo-801863.jpeg"); */
     background-size: cover;
     margin: 0;
 }
@@ -20,6 +21,19 @@ main {
 body {
     margin: 0;
     border: 0;
+}
+
+.navbar-brand .navbar-item {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+    letter-spacing: 1.5px;
+}
+
+.navbar-start .navbar-item .field .control .input {
+    width: 500px;
+    margin-left: 4rem;
+    
+
 }
 
 
@@ -35,9 +49,10 @@ body {
     height: 900px;
 }
 
-.button {
+.card-footer nav div span .button {
     border-top: 20px;
     border-bottom: 20px;
+    border-radius: 50px;
 }
 
 .carousel {
@@ -55,7 +70,7 @@ body {
 .carousel-item .card {
     width: 400px;
     /* Adjust the width as needed */
-    height: 500px;
+    height: 550px;
     /* Adjust the height as needed */
     margin: 0 auto;
     border-radius: 50px;
@@ -118,18 +133,19 @@ body {
 
 .carousel .slider .slider-pagination {
     bottom: 0px !important;
-    background: beige;
+    background: rgba(43, 43, 41, 0.629);
     border-radius: 50px;
     width: 50%;
+    height: 50px;
     margin: 0 auto;
     border-top: 100px;
     position: relative;
 }
 
 .carousel .slider .slider-pagination .slider-page {
-    background-color: rgba(235, 8, 8, 0.5) !important;
+    background-color: rgba(10, 247, 232, 0.758) !important;
     /* Semi-transparent white */
-    border-radius: 50%;
+    /* border-radius: 50%; */
     /* Round the corners */
 }
 

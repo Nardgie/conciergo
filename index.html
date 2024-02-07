@@ -44,8 +44,9 @@
 <body>
     <nav class="navbar is-dark">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+            <a class="navbar-item" href="./index.html">
+                <img src="./Subject.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="112px">
+                CONCIERGO
             </a>
             <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
                 <span></span>
@@ -56,31 +57,9 @@
 
         <div id="navbarExampleTransparentExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="button is-danger is-outlined is-large navbar-item" href="https://bulma.io/">
-                    Plan Your Itenerary
+                <a class="button is-info is-large navbar-item" href="https://bulma.io/">
+                    Plan It!
                 </a>
-                <a class="navbar-item" href="https://bulma.io/">
-                    Concerts Near You
-                </a>
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link" href="/documentation/overview/start/">
-                        More
-                    </a>
-                    <div class="navbar-dropdown is-boxed">
-                        <a class="navbar-item" href="/documentation/overview/start/">
-                            Mechandise
-                        </a>
-                        <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
-                            Extras
-                        </a>
-                        <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                            Media
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="navbar-start">
                 <div class="navbar-item">
                     <div class="field">
                         <label class="label is-medium"></label>
@@ -90,7 +69,28 @@
                     </div>
                 </div>
             </div>
+            <div class="navbar-end">
+                <a class="navbar-item button is-dark is-large is-link" href="https://bulma.io/">
+                    Concerts Near You
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" href="/documentation/overview/start/">
+                        More
+                    </a>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item" href="/documentation/overview/start/">
+                            Nearby Bars
+                        </a>
+                        <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
+                            Nearby Restaurants
+                        </a>
+                    </div>
+                </div>
+            </div>
+                
         </div>
+
+            
     </nav>
 
     <!-- <section class="hero">
@@ -101,7 +101,9 @@
     <main>
         <section class="section">
             <div class="container has-text-centered" id="events">
-                <h1 class="title">Concerts Near You</h1>
+                <br>
+                <br>
+                <!-- <h1 class="title">Concerts Near You</h1> -->
                 <div class="carousel" data-autoplay="false" data-pagination="true" data-navigation="true">
 
                 </div>
@@ -125,9 +127,10 @@
         <div id="map">
 
         </div>
-        <gmp-map center="28.561222076416016,-81.48899841308594" zoom="14" map-id="DEMO_MAP_ID">
+        <!-- <gmp-map center="28.561222076416016,-81.48899841308594" zoom="14" map-id="DEMO_MAP_ID">
             <gmp-advanced-marker position="28.561222076416016,-81.48899841308594" title="My location"></gmp-advanced-marker>
-        </gmp-map>
+        </gmp-map> -->
+    
         
 
         <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
@@ -137,5 +140,6 @@
         <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY"></script> -->
     </main>
     <!-- <script src="./script.js"></script> -->
+    
 </body>
 </html>

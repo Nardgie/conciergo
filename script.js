@@ -84,6 +84,8 @@ function showEvents(json) {
             event: event,
             distance: distance
         }
+
+
         return item;
     });
 
@@ -103,7 +105,7 @@ function showEvents(json) {
         var venue = event._embedded.venues[0];
         var distance = item.distance;
         var date = new Date(event.dates.start.dateTime).toLocaleDateString();
-        var imageUrl = event.images[0].url;
+        var imageUrl = event.images[1].url;
         var priceRange = '';
         if (event.priceRanges && event.priceRanges.length >  0) {
     priceRange = `$${event.priceRanges[0].min} - $${event.priceRanges[0].max}`;
@@ -122,14 +124,20 @@ function showEvents(json) {
                     </div>
                     <div class="card-content is-flex-wrap-wrap">
                         <p class="title is-4">${event.name}</p>
+                        <p class="subtitle is-6">${distance} Miles away</p>
                         <p class="title is-6">${venue.name}</p>
+                        
                         <p class="title is-6">${venue.city.name}, ${venue.state.name}</p>
                         <p class="subtitle is-6">${date}</p>
                     </div>
                     <footer class="card-footer is-centered">
                         <nav class="level is-mobile">
                             <div class="level-item">
-                                <a class="button is-info card-footer-item" href="${event.url}" target="_blank">Get Tickets</a>
+                                <span>
+                                    <a class="button is-info card-footer-item" href="${event.url}" target="_blank">Get Tickets</a>
+                                    <small class="card-footer-item">Price Range: ${priceRange} </small>
+                                </span>
+
                             </div>
                         </nav>
                     </footer>
@@ -270,6 +278,8 @@ function addMarker(map, event) {
 
 // //     // Add the weather element to the DOM where you want to display the forecast
 // // });
+
+
 
 showPosition();
 // getWeather(venue.location.latitude, venue.location.longitude)
