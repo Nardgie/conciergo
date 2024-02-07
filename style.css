@@ -3,59 +3,161 @@
     height: 400px;
 }
 
-.section {
-    height: 1000px;
-    background-color: black;
-    background-size: cover;
+#location{
+    display: none;
 }
+
+p {
+    color: white;
+}
+
+main {
+    /* background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
+    background: url("./purpleClubbing.png");
+    background-size: cover;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    border: 0;
+}
+
+.navbar-item {
+    font-family: "Orbitron", sans-serif;
+    color: #000;
+
+}
+
+.navbar .button {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+} 
+
+.navbar-brand .navbar-item {
+    font-family: "Orbitron", sans-serif;
+    color: #000;
+    font-size: 30px;
+    letter-spacing: 1.5px;
+}
+
+.navbar-start .navbar-item .field .control .input {
+    width: 500px;
+    margin-left: 4rem;
+    
+
+}
+
+
 
 .carousel-item .tile {
     background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-size: cover;
+    background-color: aliceblue;
 }
 
 #events {
-    width: 700px;
-    height: 700px;
-    background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    width: 600px;
+    height: 900px;
 }
 
-.button {
+.card-footer nav div span .button {
+    border-top: 20px;
     border-bottom: 20px;
+    border-radius: 50px;
 }
 
 .carousel {
     height: 500px;
 }
 
+/* cards */
+/* .carousel-item .card .card-content  */
+    /* background-image: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover; */
+    /* Adjust the height as needed */
+    /* padding: 1rem; */
+
+
+.carousel-item .card {
+    width: 400px;
+    /* Adjust the width as needed */
+    height: 550px;
+    /* Adjust the height as needed */
+    margin: 0 auto;
+    border-radius: 50px;
+}
+
+.carousel-item .card .card-image {
+    height: 200px;
+    /* Adjust the height as needed */
+    overflow: hidden;
+    /* Hide any part of the image that exceeds the bounds */
+}
+
+.carousel-item .card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Cover the area of the figure while maintaining aspect ratio*/
+}
+
+.carousel-item .card .card-footer {
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .carousel-item .card .card-content { */
+    /* height: 100px; */
+    /* Adjust the height as needed */
+    /* overflow: auto; */
+    /* Make the content scrollable if it overflows */
+
+/* } */
+
+
+
+
 .carousel-item .tile {
     height: 800px;
     width: 100%;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-self: space-between; */
 }
 
-.carousel-item .tile figure.image {
+/* .carousel-item .tile figure.image {
     flex-shrink: 0;
     height: 70%;
-}
+    width: 50%;
+    overflow: hidden;
+} */
 
-.carousel-item .tile figure.image img {
+/* .carousel-item .tile figure.image img {
     max-height: 100%;
     max-width: 100%;
     object-fit: cover;
-}
+} */
 
-.carousel .slide .slider-pagination .slider-page {
-    bottom: 20px;
-    color: black;
+.carousel .slider .slider-pagination {
+    bottom: 0px !important;
+    background: rgba(43, 43, 41, 0.629);
+    border-radius: 50px;
+    width: 50%;
+    height: 50px;
+    margin: 0 auto;
+    border-top: 100px;
+    position: relative;
 }
 
 .carousel .slider .slider-pagination .slider-page {
-    background-color: rgba(235, 8, 8, 0.5);
+    background-color: rgba(10, 247, 232, 0.758) !important;
     /* Semi-transparent white */
-    border-radius: 50%;
+    /* border-radius: 50%; */
     /* Round the corners */
 }
 

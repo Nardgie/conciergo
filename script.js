@@ -2,19 +2,14 @@ var gloablLat;
 var globalLon;
 var venue;
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-        var x = document.getElementById("location");
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
+// function getLocation() {
+//     navigator.geolocation.getCurrentPosition(showPosition, showError);
+// }
 
-function showPosition(position) {
+function showPosition(data) {
     var apiKey = 'f626ccfbd488461d9c902410259022da';
     // API endpoint for geolocation
-    var apiEndpoint = 'https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey;
+    // var apiEndpoint = 'https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey;
 
     // Make a request to the API
     fetch(apiEndpoint)
@@ -36,7 +31,7 @@ function showPosition(position) {
 
         $.ajax({
             type:"GET",
-            url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=9xDaR1A6yRioMl6Xk2GG6ccydbFsnQZp&latlong="+latlon,
+            url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=9xDaR1A6yRioMl6Xk2GG6ccydbFsnQZp&latlong="+latlon+"&radius=50&unit=miles&size=25",
             async:true,
             dataType: "json",
             success: function(json) {
@@ -46,8 +41,9 @@ function showPosition(position) {
                         var e = document.getElementById("events");
                         // e.innerHTML = " events found";
                         // json.page.totalElements + " events found.";
+                        // showPosition();
                         showEvents(json);
-                        initMap(position, json);
+                        initMap(data, json);
                     },
             error: function(xhr, status, err) {
                         console.log(err);
@@ -88,21 +84,28 @@ function showEvents(json) {
             event: event,
             distance: distance
         }
+
+
         return item;
     });
 
     // Sort events by distance
     eventsWithDistances.sort(function(a, b) {
-        return a.distance - b.distance;
+        return parseFloat(a.distance) - parseFloat(b.distance);
     });
 
+    //sort by date
+    eventsWithDistances.sort(function(a, b) {
+            return new Date(a.event.dates.start.dateTime) - new Date(b.event.dates.start.dateTime);
+        });
+    
     // Append sorted events to the DOM
     eventsWithDistances.forEach(function(item) {
         var event = item.event;
         var venue = event._embedded.venues[0];
         var distance = item.distance;
         var date = new Date(event.dates.start.dateTime).toLocaleDateString();
-        var imageUrl = event.images[0].url;
+        var imageUrl = event.images[1].url;
         var priceRange = '';
         if (event.priceRanges && event.priceRanges.length >  0) {
     priceRange = `$${event.priceRanges[0].min} - $${event.priceRanges[0].max}`;
@@ -113,19 +116,32 @@ function showEvents(json) {
 
         var eventHtml = `
             <div class="tile is-parent carousel-item">
-                <article class="tile is-child box">
-                    <figure class="image">
-                        <img src="${imageUrl}" alt="${event.name}">
-                    </figure>
-                    <p class="title is-3">${event.name}</p>
-                    <p class="title is-5">${venue.city.name}, ${venue.state.name}</p>
-                    <p class="subtitle is-4">${date}</p>
-                    <nav class="level is-mobile">
-                        <div class="level-item">
-                            <a class="button is-info" href="${event.url}" target="_blank">Get Tickets</a>
-                        </div>
-                    </nav>
-                </article>
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                                <img src="${imageUrl}" alt="${event.name}">
+                            </figure>
+                    </div>
+                    <div class="card-content is-flex-wrap-wrap">
+                        <p class="title is-4">${event.name}</p>
+                        <p class="subtitle is-6">${distance} Miles away</p>
+                        <p class="title is-6">${venue.name}</p>
+                        
+                        <p class="title is-6">${venue.city.name}, ${venue.state.name}</p>
+                        <p class="subtitle is-6">${date}</p>
+                    </div>
+                    <footer class="card-footer is-centered">
+                        <nav class="level is-mobile">
+                            <div class="level-item">
+                                <span>
+                                    <a class="button is-info card-footer-item" href="${event.url}" target="_blank">Get Tickets</a>
+                                    <small class="card-footer-item">Price Range: ${priceRange} </small>
+                                </span>
+
+                            </div>
+                        </nav>
+                    </footer>
+                </div>
             </div>
         `;
 
@@ -161,11 +177,15 @@ function showEvents(json) {
     bulmaCarousel.attach(".carousel", {
         slidesToShow:  1,
         slidesToScroll:  1,
-        duration: 2000,
+        duration: 500,
         loop: true,
-        autoplay: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        infinite: true,
         pagination: true,
-        navigation: true
+        navigation: true,
+        navigationSwipe: true,
+        pauseOnHover: false
     });
 }
 
@@ -191,7 +211,7 @@ function initMap(position, json) {
     var mapDiv = document.getElementById('map');
     var map = new google.maps.Map(mapDiv, {
         center: {lat: gloablLat, lng: globalLon},
-        zoom: 10
+        zoom: 11
     });
 
     for(var i=0; i<json.page.size; i++) {
@@ -260,7 +280,8 @@ function addMarker(map, event) {
 // // });
 
 
-getLocation();
+
+showPosition();
 // getWeather(venue.location.latitude, venue.location.longitude)
 
 
