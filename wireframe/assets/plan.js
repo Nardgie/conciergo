@@ -124,9 +124,9 @@ function showPosition(data) {
         console.log(latlon);
         console.log('Geolocation API Response:', data);
 
-        var x = document.getElementById("location");
-        x.innerHTML = "Latitude: " + gloablLat + 
-        "<br>Longitude: " + globalLon; 
+        // var x = document.getElementById("location");
+        // x.innerHTML = "Latitude: " + gloablLat + 
+        // "<br>Longitude: " + globalLon; 
 
         $.ajax({
             type:"GET",
@@ -212,36 +212,19 @@ function showEvents(json) {
             priceRange = 'Price range not available';
         }   
         var parkingInfo = venue.parking ? venue.parking.summary : 'Parking information not available';
-
+        // <td>${venue.city.name}, ${venue.state.name}</p>
         var eventHtml = `
-            <div class="tile is-parent carousel-item">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                                <img src="${imageUrl}" alt="${event.name}">
-                            </figure>
-                    </div>
-                    <div class="card-content is-flex-wrap-wrap">
-                        <p class="title is-4">${event.name}</p>
-                        <p class="subtitle is-6">${distance} Miles away</p>
-                        <p class="title is-6">${venue.name}</p>
+                    <tr class="card-content is-flex-wrap-wrap">
+                        <td>${event.name}</td>
                         
-                        <p class="title is-6">${venue.city.name}, ${venue.state.name}</p>
-                        <p class="subtitle is-6">${date}</p>
-                    </div>
-                    <footer class="card-footer is-centered">
-                        <nav class="level is-mobile">
-                            <div class="level-item">
-                                <span>
-                                    <a class="button is-info card-footer-item" href="${event.url}" target="_blank">Get Tickets</a>
-                                    <small class="card-footer-item">Price Range: ${priceRange} </small>
-                                </span>
-
-                            </div>
-                        </nav>
-                    </footer>
-                </div>
-            </div>
+                        <td>${venue.name}</td>
+                        
+                        
+                        <td>${date}</td>
+                        <td>${distance} Miles away</td>
+                        <td class="level-right"><a class="button is-small is-primary"
+                                                href="#">Action</a></td>
+                    </tr>
         `;
 
             // <article class="media">
