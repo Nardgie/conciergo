@@ -1,5 +1,5 @@
 // Setting it up so that if a user event is selected, it will show up on the top
-//Still Working on that logic
+// Still Working on that logic
 document.addEventListener("DOMContentLoaded", function() {
     // Function to handle form submission
     function handleFormSubmission(event) {
