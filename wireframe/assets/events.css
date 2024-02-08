@@ -1,0 +1,103 @@
+#map {
+    width: 500px;
+    height: 400px;
+}
+
+#location {
+    display: none;
+}
+
+p {
+    color: white;
+}
+
+main {
+    /* background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
+    background: url("/Users/nardge/bootcamp/project1/project-1/purpleClubbing.png");
+    background-size: cover;
+    margin: 0;
+    height: 2000px;
+}
+
+body {
+    margin: 0;
+    border: 0;
+}
+
+.navbar-item {
+    font-family: "Orbitron", sans-serif;
+    color: #000;
+
+}
+
+.navbar .button {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.navbar-brand .navbar-item {
+    font-family: "Orbitron", sans-serif;
+    color: #000;
+    font-size: 30px;
+    letter-spacing: 1.5px;
+}
+
+.navbar-start .navbar-item .field .control .input {
+    width: 500px;
+    margin-left: 4rem;
+}
+
+
+.card {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+    margin-bottom: 2rem;
+}
+
+.card-header-title {
+    color: #8F99A3;
+    font-weight: 400;
+}
+
+
+.info-tiles {
+    margin: 1rem 0;
+}
+
+.info-tiles .subtitle {
+    font-weight: 300;
+    color: #8F99A3;
+}
+
+.hero.welcome.is-info {
+    background: #36D1DC;
+    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+    background: linear-gradient(to right, #5B86E5, #36D1DC);
+}
+
+.hero.welcome .title,
+.hero.welcome .subtitle {
+    color: hsl(192, 17%, 99%);
+}
+
+.card .content {
+    font-size: 14px;
+}
+
+.card-footer-item {
+    font-size: 14px;
+    font-weight: 700;
+    color: #8F99A3;
+}
+
+/* .card-footer-item:hover {
+
+} */
+
+.card-table .table {
+    margin-bottom: 0;
+}
+
+.events-card .card-table {
+    max-height: 250px;
+    overflow-y: scroll;
+}

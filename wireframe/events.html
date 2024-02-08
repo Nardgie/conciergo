@@ -4,27 +4,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/events.css" media="screen">
-    <title>Events Page</title>
+    <!-- <link rel="stylesheet" href="./assets/events.css" media="screen"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&family=Orbitron:wght@400;600&family=Sixtyfour&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+
+    <link rel="stylesheet" href="/Users/nardge/bootcamp/project1/project-1/bulma.css">
+    <link rel="stylesheet" href="./assets/events.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <title>Plan It!</title>
 </head>
 
 <body>
-    <header>
-        <h1>Events Near you!</h1>
-        <!-- Include header content here -->
-    </header>
+    <nav class="navbar is-dark">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/Users/nardge/bootcamp/project1/project-1/index.html">
+                <img src="/Users/nardge/bootcamp/project1/project-1/Subject.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="112px">
+                CONCIERGO
+            </a>
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="button is-info is-medium navbar-item" href="./events.html">
+                    Plan It!
+                </a>
+                <div class="navbar-item">
+                    <div class="field">
+                        <label class="label is-medium"></label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Search . . .">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-end">
+                <a class="navbar-item button is-dark is-medium is-link" href="./wireframe/events.html">
+                    Concerts Near You
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" href="/documentation/overview/start/">
+                        More
+                    </a>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item" href="/documentation/overview/start/">
+                            Nearby Bars
+                        </a>
+                        <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
+                            Nearby Restaurants
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>     
+    </nav>
 
     <main>
         <!-- Include events content here -->
 
-        
+        <!--HERO BANNER AND WELCOME-->
+        <section class="hero is-info welcome is-small">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Hello, Admin.
+                            </h1>
+                            <h2 class="subtitle">
+                                I hope you are having a great day!
+                            </h2>
+                        </div>
+                    </div>
+        </section>
+
+            <!--Info tiles Eventually to be dynamically updated with JS-->
+            <!--Delete other lines (second child divs and articles) for JS-->
+            <section class="info-tiles">
+                    <div class="tile is-ancestor has-text-centered">
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">439k</p>
+                                <p class="subtitle">Users</p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">59k</p>
+                                <p class="subtitle">Products</p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">3.4k</p>
+                                <p class="subtitle">Open Orders</p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">19</p>
+                                <p class="subtitle">Exceptions</p>
+                            </article>
+                        </div>
+                    </div>
+            </section>
+
+                <!--Events Card Dropdown-->
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Events
+                                </p>
+                                <a href="#" class="card-header-icon" aria-label="more options">
+                    <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </span></a>
+                            </header>
+                            <div class="card-table">
+                                <div class="content">
+                                    <table class="table is-fullwidth is-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                                <td>Lorum ipsum dolem aire</td>
+                                                <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View All</a>
+                            </footer>
+
+                        </div>
+                    </div>
+                </div>
+
     </main>
 
-
-
-    <footer>
-        <!-- Include footer content here -->
-    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+    <script src="/Users/nardge/bootcamp/project1/project-1/script.js"></script>
 </body>
 
 </html>
