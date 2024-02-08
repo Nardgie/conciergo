@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Setting it up so that if a user event is selected, it will show up on the top
 // Still Working on that logic
 
@@ -61,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // Fetch nearby places based on the selected event's location
         fetchNearbyPlaces(selectedEvent.location);
     }
-=======
 // // Setting it up so that if a user event is selected, it will show up on the top
 // //Still Working on that logic
 // document.addEventListener("DOMContentLoaded", function() {
@@ -76,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function() {
 //         // Fetch nearby places based on the selected event's location
 //         fetchNearbyPlaces(selectedEvent.location);
 //     }
->>>>>>> 810aec397da6c46e256603849b1d323f5741af81
 
 //     // Function to update the page with the selected event
 //     function updateSelectedEvent(event) {
@@ -425,16 +422,3 @@ function addMarker(map, event) {
 
 // //     // Add the weather element to the DOM where you want to display the forecast
 // // });
-
-
-
-showPosition();
-// getWeather(venue.location.latitude, venue.location.longitude)
-
-
-
-
-
-//192.168.1.12
-// google maps key: AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY
-
