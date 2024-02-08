@@ -371,54 +371,5 @@ function addMarker(map, event) {
     marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
     console.log(marker);
 }
-// var data; 
 
-// function getWeather(lat, lon, callback){
-//     var apiKey = '9fda455ae9137822224a160754647dd2';
-//     var forecastApi = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-
-//     var lat = venue.location.latitude
-//     var lon = venue.location.longitude
-    
-//     fetch(forecastApi)
-//     .then(function(response) {
-//         return response.json();
-//     })
-//     .then(function(data) {
-//         // Example of logging the forecast data
-//         console.log(data);
-//         data.forEach(function(forecastEntry) {
-//             // Get the weather description and icon code
-//             var weatherDescription = forecastEntry.weather[0].description;
-//             var iconCode = forecastEntry.weather[0].icon;
-
-//             // Construct the icon URL using the icon code
-//             var iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
-
-//             // Create an HTML element to display the weather icon and description
-//             var weatherElement = document.createElement('div');
-//             weatherElement.innerHTML = `<img src="${iconUrl}" alt="${weatherDescription}"> ${weatherDescription}`;
-
-//             // Add the weather element to the DOM where you want to display the forecast
-//         });
-        
-//         // Extract and display the forecast information here
-//         // For instance, you could loop through the list array and create HTML elements to display the forecast
-//     });
-// }
-
-// // Assuming `forecastData` is the JSON object returned from the API call
-// // data.forEach(function(forecastEntry) {
-// //     // Get the weather description and icon code
-// //     var weatherDescription = forecastEntry.weather[0].description;
-// //     var iconCode = forecastEntry.weather[0].icon;
-
-// //     // Construct the icon URL using the icon code
-// //     var iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
-
-// //     // Create an HTML element to display the weather icon and description
-// //     var weatherElement = document.createElement('div');
-// //     weatherElement.innerHTML = `<img src="${iconUrl}" alt="${weatherDescription}"> ${weatherDescription}`;
-
-// //     // Add the weather element to the DOM where you want to display the forecast
-// // });
+//Data related to local account creation and local storage

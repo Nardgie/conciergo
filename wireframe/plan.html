@@ -51,22 +51,28 @@
                 </div>
             </div>
             <div class="navbar-end">
-                <a class="navbar-item button is-dark is-medium is-link" href="./wireframe/events.html">
-                    Concerts Near You
-                </a>
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link" href="/documentation/overview/start/">
-                        More
-                    </a>
-                    <div class="navbar-dropdown is-boxed">
-                        <a class="navbar-item" href="/documentation/overview/start/">
-                            Nearby Bars
-                        </a>
-                        <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
-                            Nearby Restaurants
-                        </a>
-                    </div>
+            <!-- Sign-in link -->
+            <a id="signInLink" class="navbar-item button is-dark is-medium is-link">Sign In</a>
+            <!-- Modal for sign-in and account creation -->
+            <div id="signInModal" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <!-- Modal content -->
+                    <section class="modal-card-body">
+                        <!-- Sign-in form -->
+                        <form id="signInForm">
+                            <!-- Sign-in form fields -->
+                        </form>
+                        <!-- Account creation form -->
+                        <form id="createAccountForm">
+                            <!-- Account creation form fields -->
+                        </form>
+                    </section>
+                    <footer class="modal-card-foot">
+                        <!-- Modal footer -->
+                    </footer>
                 </div>
+            </div>
             </div>
         </div>
     </nav>
