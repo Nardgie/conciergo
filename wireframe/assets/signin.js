@@ -40,10 +40,32 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log('New Password:', newPassword);
             // Implement create account logic here
 
-            
+
             // Close the modal after account creation
             createAccountModal.classList.remove('is-active');
         });
+    }
+
+    var signInForm = document.getElementById('signInForm');
+    signInForm.addEventListener('submit', handleSignIn);
+
+    function handleSignIn(event) {
+        event.preventDefault();
+        // Retrieve sign-in credentials from the form
+        var formData = new FormData(event.target);
+        var email = formData.get('email');
+        var password = formData.get('password');
+        
+        // Store user credentials in local storage
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+        
+        // Log the credentials for testing
+        console.log('Email:', email);
+        console.log('Password:', password);
+        
+        // Redirect to another page or perform other actions after sign-in
+        // window.location.href = 'welcome.html';
     }
 });
 
