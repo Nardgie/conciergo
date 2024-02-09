@@ -24,7 +24,7 @@
 <body>
     <nav class="navbar is-dark">
         <div class="navbar-brand">
-            <a class="navbar-item" href="/Users/nardge/bootcamp/project1/project-1/index.html">
+            <a class="navbar-item" href="C:\Users\Joshua\Desktop\project-1\index.html">
                 <img src="/Users/nardge/bootcamp/project1/project-1/Subject.png"
                     alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="112px">
                 CONCIERGO
@@ -35,44 +35,46 @@
                 <span></span>
             </div>
         </div>
-
+    
         <div id="navbarExampleTransparentExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="button is-info is-medium navbar-item" href="./events.html">
                     Plan It!
                 </a>
+                <!-- Search bar -->
                 <div class="navbar-item">
                     <div class="field">
-                        <label class="label is-medium"></label>
                         <div class="control">
                             <input class="input" type="text" placeholder="Search . . .">
                         </div>
                     </div>
                 </div>
+                <!-- Sign in button -->
+                <div class="navbar-item">
+                    <button id="signInButton" class="button is-primary" onclick="window.location.href = 'signin.html';">Sign In</button>
+                </div>
+    
+
+
             </div>
             <div class="navbar-end">
-            <!-- Sign-in link -->
-            <a id="signInLink" class="navbar-item button is-dark is-medium is-link">Sign In</a>
-            <!-- Modal for sign-in and account creation -->
-            <div id="signInModal" class="modal">
-                <div class="modal-background"></div>
-                <div class="modal-card">
-                    <!-- Modal content -->
-                    <section class="modal-card-body">
-                        <!-- Sign-in form -->
-                        <form id="signInForm">
-                            <!-- Sign-in form fields -->
-                        </form>
-                        <!-- Account creation form -->
-                        <form id="createAccountForm">
-                            <!-- Account creation form fields -->
-                        </form>
-                    </section>
-                    <footer class="modal-card-foot">
-                        <!-- Modal footer -->
-                    </footer>
+                <!-- Concerts Near You button -->
+                <a class="navbar-item button is-dark is-medium is-link" href="./wireframe/events.html">
+                    Concerts Near You
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" href="/documentation/overview/start/">
+                        More
+                    </a>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item" href="/documentation/overview/start/">
+                            Nearby Bars
+                        </a>
+                        <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
+                            Nearby Restaurants
+                        </a>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </nav>
@@ -167,11 +169,16 @@
 
     </main>
 
+
+  
+  
+  
+
     <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
     <!-- <script src="/Users/nardge/bootcamp/project1/project-1/script.js"></script> -->
-    <script src="/Users/nardge/bootcamp/project1/project-1/wireframe/assets/plan.js"></script>
+    <script src="./assets/plan.js"></script>
+    
 </body>
 
 </html>
-
 
