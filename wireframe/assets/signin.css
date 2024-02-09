@@ -1,0 +1,9 @@
+body {
+    position: relative; /* Ensure proper stacking order */
+    background-image: url('..//assets/images/header.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+    height: 100vh; /* Set body height to 100% of viewport height */
+}
