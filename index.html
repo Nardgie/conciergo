@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY&callback=console.debug&libraries=maps,marker&v=beta"></script> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&family=Orbitron:wght@400;600&family=Sixtyfour&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+
+    <link rel="stylesheet" href="./bulma.css">
     <link rel="stylesheet" href="./style.css">
+    
+
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     
 
-    <title>Project One Title Pending</title>
+    <title>Conciergo- Your personal conert concierge</title>
     <style>
     /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -36,24 +44,109 @@
 
 </head>
 <body>
-    <p id="location">location there</p>
-    <div id="map">
-
-    </div>
-    <gmp-map center="28.561222076416016,-81.48899841308594" zoom="14" map-id="DEMO_MAP_ID">
-        <gmp-advanced-marker position="28.561222076416016,-81.48899841308594" title="My location"></gmp-advanced-marker>
-    </gmp-map>
-    <section class="section">
-        <div class="container">
-            <h1 class="title">Nearby Events</h1>
-            <div id="events" class="columns is-multiline"></div>
+    <nav class="navbar is-dark">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="./index.html">
+                <img src="./Subject.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="112px">
+                CONCIERGO
+            </a>
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </section>
 
-    <script src="./script.js"></script>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="button is-info is-medium navbar-item" href="/Users/nardge/bootcamp/project1/project-1/wireframe/plan.html">
+                    Plan It!
+                </a>
+                <div class="navbar-item">
+                    <div class="field">
+                        <label class="label is-medium"></label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Search . . .">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-end">
+                <a class="navbar-item button is-dark is-medium is-link" href="./wireframe/events.html">
+                    Concerts Near You
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" href="/documentation/overview/start/">
+                        More
+                    </a>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item" href="/documentation/overview/start/">
+                            Nearby Bars
+                        </a>
+                        <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
+                            Nearby Restaurants
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>     
+    </nav>
+
+    <!-- <section class="hero">
+        <figure class="image">
+            <img src="https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+        </figure>
+    </section> -->
+    <main>
+        <section class="section">
+            <div class="container has-text-centered" id="events">
+                <br>
+                <br>
+                <!-- <h1 class="title">Concerts Near You</h1> -->
+                <div class="carousel" data-autoplay="false" data-pagination="true" data-navigation="true">
+
+                </div>
+
+                <!-- <div class="tile is-ancestor">
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <figure class="image">
+                                <img src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                            </figure>
+                            <p class="title">New York</p>
+                            <p class="subtitle">Fri 27 Nov 2016</p>
+                            <a class="button">Buy Tickets</a>
+                        </article>
+                    </div>
+                </div> -->
+            </div>
+        </section>
     
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY"></script>
+        <p id="location">location there</p>
+        <div id="map">
+
+        </div>
+        <!-- <gmp-map center="28.561222076416016,-81.48899841308594" zoom="14" map-id="DEMO_MAP_ID">
+            <gmp-advanced-marker position="28.561222076416016,-81.48899841308594" title="My location"></gmp-advanced-marker>
+        </gmp-map> -->
     
+        
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>Conciergo</strong> by <a href="#">Jeremy Thomas</a>. The source code is licensed
+                    <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+                    is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+                </p>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+        <script src="./script.js"></script>
+    
+    <!--uncomment this later-->
+        <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY&library=places"></script>
+    </main>
     <!-- <script src="./script.js"></script> -->
+    
 </body>
 </html>
