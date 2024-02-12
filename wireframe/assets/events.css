@@ -11,6 +11,8 @@ p {
     color: white;
 }
 
+
+
 main {
     /* background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
     background: url("/Users/nardge/bootcamp/project1/project-1/purpleClubbing.png");
@@ -47,10 +49,42 @@ body {
     margin-left: 4rem;
 }
 
+/* figure.image{
+    border-radius: 50%;
+} */
+/* .card .card-image .image img.venue-img, .card, .tile {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+} */
+
+
+
+.is-parent {
+    margin: 1rem 2rem;
+    height: 400px;
+    width: 400px;
+}
+
+#tileContainer {
+    margin: 1rem 2rem;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.info-tiles .subtitle {
+    font-weight: 300;
+    color: #8F99A3;
+}
 
 .card {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
     margin-bottom: 2rem;
+    border-radius: 50%;
 }
 
 .card-header-title {
@@ -59,11 +93,8 @@ body {
 }
 
 
-.info-tiles {
-    margin: 1rem 0;
-}
 
-.info-tiles .subtitle {
+.tile .subtitle {
     font-weight: 300;
     color: #8F99A3;
 }
