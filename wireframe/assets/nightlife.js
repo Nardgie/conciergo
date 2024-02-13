@@ -482,7 +482,7 @@ $(document).ready(function () {
                     <div class="tile has-text-centered is-horizontal center-position is-hidden">
                         <div class="tile is-parent">
                             <article class="tile is-child" style="display: flex; align-items: center; justify-content: center; background-image: url('${photo}'); background-size: cover;">
-                                <p class="subtitle is-4">${name}</p>
+                                <button class="open js-modal-trigger" style="background-image: url('${photo}'); background-size: cover;"><p class="subtitle is-4">${name}</p></button>
                             </article>
                         </div>
                     </div>
@@ -515,6 +515,10 @@ $(document).ready(function () {
               tile.style.transform = "translate(-50%, -50%)";
             });
         });
+        $(document).on("click", "button.open", function (e) {
+            e.preventDefault();
+
+        })
         //   moveToCenter()
         //   console.log(results);
           console.log(item);
