@@ -147,6 +147,44 @@
         <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY&library=places"></script>
     </main>
     <!-- <script src="./script.js"></script> -->
+   <div class="circle">
+    <canvas id="myCanvas" width="200" height="120" style="border:1px solid #d3d3d3;"></canvas>
+
+    <script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
     
+    ctx.beginPath();
+    ctx.arc(100,50,50,0,2*Math.PI);
+    ctx.stroke();
+    </script> 
+   </div> 
+
+   <article class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+      </div>
+      <div class="flip-card-back">
+        <h1>John Doe</h1>
+        <p>Architect & Engineer</p>
+        <p>We love that guy</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="flip-card2">
+    <div class="flip-card2-inner">
+      <div class="flip-card2-front">
+        <img src="img_avatar2.png" alt="Avatar2" style="width:300px;height:300px;">
+      </div>
+      <div class="flip-card2-back">
+        <h1>John Doe</h1>
+        <p>Architect & Engineer</p>
+        <p>We love that guy</p>
+      </div>
+    </div>
+  </article>
+
 </body>
 </html>
