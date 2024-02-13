@@ -24,7 +24,7 @@
 <body>
     <nav class="navbar is-dark">
         <div class="navbar-brand">
-            <a class="navbar-item" href="C:\Users\Joshua\Desktop\project-1\index.html">
+            <a class="navbar-item" href="/Users/nardge/bootcamp/project1/project-1/index.html">
                 <img src="/Users/nardge/bootcamp/project1/project-1/Subject.png"
                     alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="112px">
                 CONCIERGO
@@ -35,30 +35,22 @@
                 <span></span>
             </div>
         </div>
-    
+
         <div id="navbarExampleTransparentExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="button is-info is-medium navbar-item" href="./events.html">
                     Plan It!
                 </a>
-                <!-- Search bar -->
                 <div class="navbar-item">
                     <div class="field">
+                        <label class="label is-medium"></label>
                         <div class="control">
                             <input class="input" type="text" placeholder="Search . . .">
                         </div>
                     </div>
                 </div>
-                <!-- Sign in button -->
-                <div class="navbar-item">
-                    <button id="signInButton" class="button is-primary" onclick="window.location.href = 'signin.html';">Sign In</button>
-                </div>
-    
-
-
             </div>
             <div class="navbar-end">
-                <!-- Concerts Near You button -->
                 <a class="navbar-item button is-dark is-medium is-link" href="./wireframe/events.html">
                     Concerts Near You
                 </a>
@@ -83,11 +75,15 @@
         <!-- Include events content here -->
 
         <!--HERO BANNER AND WELCOME-->
-        <section class="hero is-info welcome is-small">
+        <section class="hero is-info welcome is-large">
             <div class="hero-body">
                 <div class="container">
-                    <!-- Add an image tag with the src attribute pointing to drinks.jpg -->
-                    <!-- <img src="./assets/images/drinks.jpg" alt="Drinks" class="hero-image"> -->
+                    <h1 class="title">
+                        Welcome to Plan It!
+                    </h1>
+                    <h2 class="subtitle">
+                        Your one-stop shop for all things entertainment.
+                    </h2>
                 </div>
             </div>
         </section>
@@ -95,14 +91,14 @@
         <!--Info tiles Eventually to be dynamically updated with JS-->
         <!--Delete other lines (second child divs and articles) for JS-->
         <section class="tile" id="tileContainer">
-                <!-- <div class="tile is-parent">
+            <!-- <div class="tile is-parent">
                     <article class="tile is-child box">
                         <p class="title"></p>
                         <p class="subtitle"></p>
                     </article>
                 </div> -->
-                
-                <!--$(.tile).append()-->
+
+            <!--$(.tile).append()-->
             </div>
         </section>
 
@@ -113,10 +109,10 @@
                 <br> -->
                 <!-- <h1 class="title">Concerts Near You</h1> -->
                 <!-- <div class="carousel" data-autoplay="false" data-pagination="true" data-navigation="true"> -->
-        
-                </div>
-        
-                <!-- <div class="tile is-ancestor">
+
+            </div>
+
+            <!-- <div class="tile is-ancestor">
                             <div class="tile is-parent">
                                 <article class="tile is-child box">
                                     <figure class="image">
@@ -166,12 +162,12 @@
                             </span>
                         </button>
                     </footer>
-                
+
                 </div>
             </div>
         </div>
         <!--Clubs Deopdown-->
-        <div class="columns" id="col-2">
+        <div class="columns is-hidden" id="col-2">
             <div class="column is-6">
                 <div class="card events-card">
                     <header class="card-header">
@@ -205,24 +201,24 @@
                             </span>
                         </button>
                     </footer>
-        
+
                 </div>
             </div>
         </div>
 
         <!--Google Map-->
-    <div id="map" class="is-hidden">
+        <div id="map" class="is-hidden">
 
-    </div>
+        </div>
 
 
     </main>
-
+    <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY"></script> -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY&libraries=places"></script>
     <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
     <!-- <script src="/Users/nardge/bootcamp/project1/project-1/script.js"></script> -->
-    <script src="./assets/plan.js"></script>
-    
+    <script src="/Users/nardge/bootcamp/project1/project-1/wireframe/assets/nightlife.js"></script>
 </body>
 
 </html>
-
