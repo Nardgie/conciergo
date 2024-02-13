@@ -111,7 +111,7 @@ $(document).ready(function () {
     // }
 
     function showPosition(data) {
-        var apiKey = 'f626ccfbd488461d9c902410259022da';
+        var apiKey = 'F9EC0B209B9C53B8421482D4B8C2F651';
         // API endpoint for geolocation
         var apiEndpoint = 'https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey;
 
