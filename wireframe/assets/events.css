@@ -135,3 +135,14 @@ body {
     max-height: 250px;
     overflow-y: scroll;
 }
+
+
+.modal {
+    display: none;
+}
+
+.is-active {
+    display: flex !important;
+}
+
+

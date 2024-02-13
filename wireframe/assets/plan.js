@@ -1,3 +1,56 @@
+// Setting it up so that if a user event is selected, it will show up on the top
+// Still Working on that logic
+
+// Update the imageUrl variable with the path to the drinks image
+var imageUrl = '\wireframe\assets\images\drinks.jpg';
+
+// Use the imageUrl variable in eventHtml template
+// Assuming you have an object called selectedEvent with the imageURL property
+
+var selectedEvent = {
+    imageURL: "path/to/selectedEventImage.jpg"
+};
+
+// Select the eventImage element
+var eventImage = document.getElementById('eventImage');
+
+// Set the src attribute of the eventImage element
+eventImage.setAttribute('src', selectedEvent.imageURL);
+
+
+var eventHtml = `
+    <div class="tile is-parent carousel-item">
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="${imageUrl}" alt="${event.name}">
+                </figure>
+            </div>
+            <div class="card-content is-flex-wrap-wrap">
+                <p class="title is-4">${event.name}</p>
+                <p class="subtitle is-6">${distance} Miles away</p>
+                <p class="title is-6">${venue.name}</p>
+                
+                <p class="title is-6">${venue.city.name}, ${venue.state.name}</p>
+                <p class="subtitle is-6">${date}</p>
+            </div>
+            <footer class="card-footer is-centered">
+                <nav class="level is-mobile">
+                    <div class="level-item">
+                        <span>
+                            <a class="button is-info card-footer-item" href="${event.url}" target="_blank">Get Tickets</a>
+                            <small class="card-footer-item">Price Range: ${priceRange} </small>
+                        </span>
+                    </div>
+                </nav>
+            </footer>
+        </div>
+    </div>
+`;
+
+
+
+   
 // // Setting it up so that if a user event is selected, it will show up on the top
 // //Still Working on that logic
 // document.addEventListener("DOMContentLoaded", function() {
@@ -608,15 +661,15 @@ $(document).ready(function () {
     window.initMap = initMap;
 
 
-    function addMarker(map, event) {
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(event._embedded.venues[0].location.latitude, event._embedded.venues[0].location.longitude),
-                    map: map
-                });
-                marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
-                console.log(marker);
-            }
-    // var data; 
+function addMarker(map, event) {
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(event._embedded.venues[0].location.latitude, event._embedded.venues[0].location.longitude),
+        map: map
+    });
+    marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+    console.log(marker);
+}
+// var data; 
 
     // function getWeather(lat, lon, callback){
     //     var apiKey = '9fda455ae9137822224a160754647dd2';
@@ -665,13 +718,12 @@ $(document).ready(function () {
     // //     var weatherElement = document.createElement('div');
     // //     weatherElement.innerHTML = `<img src="${iconUrl}" alt="${weatherDescription}"> ${weatherDescription}`;
 
-    // //     // Add the weather element to the DOM where you want to display the forecast
-    // // });
+// //     // Add the weather element to the DOM where you want to display the forecast
+// // });
 
 
-    showPosition();
-});
 
+showPosition();
 // getWeather(venue.location.latitude, venue.location.longitude)
 
 
@@ -680,19 +732,4 @@ $(document).ready(function () {
 
 //192.168.1.12
 // google maps key: AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY
-
-
-// //init bulma carousel
-// bulmaCarousel.attach(".carousel", {
-//     slidesToShow:  1,
-//     slidesToScroll:  1,
-//     duration: 500,
-//     loop: true,
-//     autoplay: true,
-//     autoplaySpeed: 5000,
-//     infinite: true,
-//     pagination: true,
-//     navigation: true,
-//     navigationSwipe: true,
-//     pauseOnHover: false
-// });
+});
