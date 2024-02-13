@@ -416,7 +416,7 @@ $(document).ready(function () {
   //FETCH NEARBY PLACES FUNCTION!!!!!!
 
   function fetchNearbyPlaces(lat, lon, userCity) {
-    var apiKey = "AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY";
+    var apiKey = "F9EC0B209B9C53B8421482D4B8C2F651";
 
     var request = {
       //   location: location,

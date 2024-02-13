@@ -111,7 +111,9 @@ $(document).ready(function () {
     // }
 
     function showPosition(data) {
+
         var token = "6417bd03e4fe33";
+
         // API endpoint for geolocation
         var apiEndpoint = `https://ipinfo.io/json?token=${token}`;
 
