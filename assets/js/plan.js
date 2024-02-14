@@ -111,6 +111,7 @@ $(document).ready(function () {
     // }
 
     function showPosition(data) {
+<<<<<<< HEAD:assets/js/plan.js
         var token = "6417bd03e4fe33";
     // API endpoint for geolocation
     var apiEndpoint = `https://ipinfo.io/json?token=${token}`;
@@ -132,6 +133,31 @@ $(document).ready(function () {
         console.log("Latitude: " + gloablLat);
         console.log("Longitude: " + globalLon);
         console.log("Geolocation API Response:", data);
+=======
+
+        var token = "6417bd03e4fe33";
+
+        // API endpoint for geolocation
+        var apiEndpoint = `https://ipinfo.io/json?token=${token}`;
+
+        // Make a request to the API
+        fetch(apiEndpoint)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                // Log the API response to the console
+                // use the data to pull specifics
+                gloablLat = data.loc.split(",")[0];
+                globalLon = data.loc.split(",")[1];
+                userCity = data.city;
+                console.log(userCity);
+                var latlon = data.loc.split(",");
+                console.log(latlon);
+                console.log("Latitude: " + gloablLat);
+                console.log("Longitude: " + globalLon);
+                console.log("Geolocation API Response:", data);
+>>>>>>> 757a43aa4d880180ac861d384781395b7d4fc3c4:wireframe/assets/plan.js
 
                 // var x = document.getElementById("location");
                 // x.innerHTML = "Latitude: " + gloablLat + 
@@ -182,59 +208,7 @@ $(document).ready(function () {
         }
     }
     var item;
-    // function addPlan() {
-    //     $(document).on("click", ".add", function (event) {
-    //         var eventData = {
-    //           date:
-    //             event.dates && event.dates.start
-    //               ? new Date(event.dates.start.dateTime).toLocaleDateString()
-    //               : null,
-    //           name: event.name ? event.name : null,
-    //           venue: event.venue,
-    //           images:
-    //             event.images && event.images.length > 0
-    //               ? event.images[0].url
-    //               : null,
-    //           _embedded: event._embedded,
-    //         };
-    //         // var event = JSON.parse(JSON.stringify(eventData)); 
-    //         $(this).data("eventData", eventData);
-
-    //         // if (e.target.className === 'button') {
-    //         //     console.log("button clicked");
-    //         // }
-    //         // if (eventString) {
-    //         //     try {
-    //         //     var event = JSON.parse(eventString); // Parse the string back into a JavaScript object
-    //         //     // ... rest of your event handling code ...
-    //         //     } catch (error) {
-    //         //     console.error("Error parsing JSON:", error);
-    //         //     }
-    //         // } else {
-    //         //     console.error("No data-event attribute found on the button.");
-    //         // }
-    //         // console.log(event); // Log the event object to the console
-    //         var venue = event.venue;
-    //         var date = event.dates && event.dates.start ? new Date(event.dates.start.dateTime).toLocaleDateString() : null;
-    //         var images = event.images && event.images.length >  0 ? event.images[0].url : null;
-
-    //         var tileHTML = `
-    //                     <div class="tile is-parent">
-    //                                 <article class="tile is-child box">
-    //                                     <div class="media-content">
-    //                                         <div class="content">
-    //                                             <p class="title">${event}</p>
-    //                                             <p class="subtitle">${venue}</p>
-    //                                         </div>
-    //                                     </div>
-    //                                 </article>
-    //                             </div>`;
-
-    //         $(".info-tiles .is-ancestor").append(tileHTML);
-    //         console.log(eventData);
-    //     });
-    // }
-
+    
     function showEvents(json) {
         // Calculate distances and store events with distance
         var eventsWithDistances = json._embedded.events.map(function (event) {
