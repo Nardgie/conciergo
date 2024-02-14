@@ -49,16 +49,6 @@ body {
     margin-left: 4rem;
 }
 
-/* figure.image{
-    border-radius: 50%;
-} */
-/* .card .card-image .image img.venue-img, .card, .tile {
-    border-radius: 50%;
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-} */
-
 
 
 .is-parent {
@@ -101,9 +91,7 @@ body {
 .hero.welcome.is-info {
     background: url("./images/drinks.jpg");
     background-size: cover;
-    /* background: #36D1DC;
-    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
-    background: linear-gradient(to right, #5B86E5, #36D1DC); */
+
 }
 
 .hero.welcome .title,
