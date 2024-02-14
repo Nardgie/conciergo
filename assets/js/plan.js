@@ -111,23 +111,27 @@ $(document).ready(function () {
     // }
 
     function showPosition(data) {
-        var apiKey = 'f626ccfbd488461d9c902410259022da';
-        // API endpoint for geolocation
-        var apiEndpoint = 'https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey;
+        var token = "6417bd03e4fe33";
+    // API endpoint for geolocation
+    var apiEndpoint = `https://ipinfo.io/json?token=${token}`;
 
-        // Make a request to the API
-        fetch(apiEndpoint)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                // Log the API response to the console
-                // use the data to pull specifics
-                gloablLat = data.latitude;
-                globalLon = data.longitude;
-                var latlon = gloablLat + "," + globalLon;
-                console.log(latlon);
-                console.log('Geolocation API Response:', data);
+    // Make a request to the API
+    fetch(apiEndpoint)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        // Log the API response to the console
+        // use the data to pull specifics
+        gloablLat = data.loc.split(",")[0];
+        globalLon = data.loc.split(",")[1];
+        userCity = data.city;
+        console.log(userCity);
+        var latlon = data.loc.split(",");
+        console.log(latlon);
+        console.log("Latitude: " + gloablLat);
+        console.log("Longitude: " + globalLon);
+        console.log("Geolocation API Response:", data);
 
                 // var x = document.getElementById("location");
                 // x.innerHTML = "Latitude: " + gloablLat + 
@@ -147,7 +151,7 @@ $(document).ready(function () {
                         // json.page.totalElements + " events found.";
                         // showPosition();
                         showEvents(json);
-                        initMap(data, json);
+                        // initMap(data, json);
                     },
                     error: function (xhr, status, err) {
                         console.log(err);
@@ -421,6 +425,8 @@ $(document).ready(function () {
           var eventData = $(this).data("event");
           //Change the class of col-2 from is-hidden to is-visible
           $("#col-2").removeClass("is-hidden");
+          $("#planH1", "#planH2").addClass("is-hidden");
+          $("#planH1").addClass("is-hidden");
         //   var placeData = $(this).data("place");
           if (eventData) {
             displayEventCard(eventData); // Function to display the event card
@@ -440,6 +446,9 @@ $(document).ready(function () {
         //   }
         });
     }
+
+//  DISPLAY EVENT CARD: PLACES CARD IN TILE ABOVE
+
     function displayEventCard(event) {
       // Clear existing card or tile if you want only one at a time
       //   $("#eventCardContainer").empty();
@@ -489,31 +498,73 @@ $(document).ready(function () {
         fetchNearbyPlaces(venueLat, venueLng);
     }
 
+    $("#view-all").on("click", function () {
+        $(".event-card .card-table").attr("style", "overflow: visible");
+    });
+
+
+
+function displayPlaces(Parr) {
+  // places.preventDefault();
+  // var placesList = document.getElementById('placesList');
+  // placesList.innerHTML = ''; // Clear previous results
+
+  Parr.forEach(function (place) {
+    
+    var createEventTableHTML = `
+            
+            <tr class="card-content is-flex-wrap-wrap">
+                <td>${place.name}</td>
+                <td>${place.vicinity}</td>
+                <td>${place.rating}</td>
+                <td class="level-right"><button class="button is-small is-primary add club" data-place='${JSON.stringify(
+                  place
+                ).replace(/'/g, "&apos;")}'>Add To Plan</button></td>
+            </tr>`;
+
+    var $clubRow = $("#clubs").append(createEventTableHTML);
+    $clubRow.find(".add").data("place", place);
+  });
+}
+
+
+
+
+
     function addPlaceToPlan(place) {
-        console.log("Event data received:", place);
+        console.log("Place data received:", place);
         if (
-          !place.name ||
-          !place.vicinity) {
+          !place.name) {
           console.error("Invalid event data structure:", place);
           return; // Exit the function if the data structure is not as expected
         }
+        var name = place.name;
+        var vicinity = place.vicinity;
+        var rating = place.rating;
+
+        var photo = place.photos[0].getUrl({maxWidth: 250, maxHeight: 250});
+        if (!photo) {
+            console.error("No photo found for the place:", place);
+            return;
+        }
+
 
         // Add place to plan
         clubTileHtml = `
         <div class="tile is-ancestor has-text-centered ">
 
             <div class="tile is-parent">
-                <article class="tile is-child box">
-                        <p class="subtitle">${place.name}</p>
-                        <p class="subtitle">${place.vicinity}</p>
-                        
+                <article class="tile is-child box" style="background-image: getUrl("${photo}"); baclground-size: cover;">
+                        <p class="subtitle">${name}</p>
+                        <p class="subtitle">${vicinity}</p>
+                        <p class="subtitle">${rating}</p>
                 </article>
             </div>
         </div>
         `;
             $("#tileContainer").append(clubTileHtml);
     }
-    $(document).on("click", ".add.club", function (e) {
+    $(document).off("click", ".add.club").on("click", ".add.club", function (e) {
         e.preventDefault();
         var placeData = $(this).data("place");
 
@@ -526,7 +577,7 @@ $(document).ready(function () {
             console.error("No event data found for the clicked button.");
         }
         console.log(placeData);
-    });
+        });
 
     function haversineDistance(lat1, lon1, lat2, lon2) {
                 const R = 6371e3; // Earth's radius in meters
@@ -545,125 +596,125 @@ $(document).ready(function () {
                 return dInMiles;
             }
 
-    function fetchNearbyPlaces(lat, lon) {
-        var apiKey = 'AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY';
+    async function fetchNearbyPlaces(lat, lon) {
+        var arr = [];
+        var mapDiv = document.getElementById("map");
+        map = new google.maps.Map(mapDiv, {
+          center: { lat: Math.round(gloablLat), lng: Math.round(globalLon) },
+          zoom: 11,
+        });
+        var apiKey = "AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY";
 
         var request = {
             location: new google.maps.LatLng(lat, lon),
-            radius: '5000',
-            type: ['bar'],
-            fields: ['name', 'vicinity', 'rating', 'opening_hours', 'utc_offset_minutes']
+            radius: "500",
+            type: ["bar"],
+            fields: [
+            "name",
+            "vicinity",
+            "rating",
+          
+            ],
         };
+        var i;
+        service = new google.maps.places.PlacesService(map);
 
-        service.nearbySearch(request, function (results, status) {
+        service.nearbySearch(request, function callback (results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
-                console.log(results);
-                // Display nearby places
-                displayPlaces(results);
+                
+            console.log(results);
+            for (i = 0; i < results.length; i++) {
+                arr.push(results[i]);
+            }
+            // Display nearby places
+            displayPlaces(arr);
             } else {
-                console.error('Error fetching nearby places:', status);
+            console.error("Error fetching nearby places:", status);
             }
+            // results.forEach((result)=>{ 
+            //     const isOpenNow = result.opening_hours.isOpen(result);
+            //         if (isOpenNow) {
+            //         console.log("The place is open now");
+            //     }
+
+            // })
             
-            const isOpenNow = place.opening_hours.isOpen();
-            if (isOpenNow) {
-                console.log('The place is open now');
-            }
-        });
-    }
-
-    function displayPlaces(places) {
-        // places.preventDefault();
-        // var placesList = document.getElementById('placesList');
-        // placesList.innerHTML = ''; // Clear previous results
-
-        places.forEach(function (place) {
-            
-
-            var createEventTableHTML = `
-            
-            <tr class="card-content is-flex-wrap-wrap">
-                <td>${place.name}</td>
-                <td>${place.vicinity}</td>
-                <td>${place.rating}</td>
-                <td class="level-right"><button class="button is-small is-primary add club" data-place='${JSON.stringify(place).replace(/'/g,"&apos;")}'>Add To Plan</button></td>
-            </tr>`;
-
-            var $clubRow = $("#clubs").append(createEventTableHTML);
-            $clubRow.find(".add").data("place", place);
         });
     }
 
     
-    function initMap(position, json) {
-        var location = new google.maps.LatLng(venueLat, venueLng);
-                var mapDiv = document.getElementById('map');
-                map = new google.maps.Map(mapDiv, {
-                    center: { lat: gloablLat, lng: globalLon },
-                    zoom: 11
-                });
+
+    
+    // function initMap(position, json) {
+    //     var location = new google.maps.LatLng(venueLat, venueLng);
+    //             var mapDiv = document.getElementById('map');
+    //             map = new google.maps.Map(mapDiv, {
+    //                 center: { lat: gloablLat, lng: globalLon },
+    //                 zoom: 11
+    //             });
        
-                var request = {
-                  location: location,
-                  radius: "500",
-                  type: ["restaurant"],
-                  fields: [
-                    "name",
-                    "vicinity",
-                    "rating",
-                    "opening_hours",
-                    "utc_offset_minutes",
-                  ]
-                };
-                console.log(request);
-                service = new google.maps.places.PlacesService(map);
-                service.nearbySearch(request, callback);
+    //             var request = {
+    //               location: location,
+    //               radius: "500",
+    //               type: ["restaurant"],
+    //               fields: [
+    //                 "name",
+    //                 "vicinity",
+    //                 "rating",
+    //                 "opening_hours",
+    //                 "utc_offset_minutes",
+    //               ]
+    //             };
+    //             console.log(request);
+    //             service = new google.maps.places.PlacesService(map);
+    //             service.nearbySearch(request, callback);
 
-                for (var i = 0; i < json.page.size; i++) {
-                    addMarker(map, json._embedded.events[i]);
-                }
-            }
+    //             for (var i = 0; i < json.page.size; i++) {
+    //                 addMarker(map, json._embedded.events[i]);
+    //             }
+    //         }
 
-            function callback(results, status) {
-                if (status == google.maps.places.PlacesServiceStatus.OK) {
-                    for (var i = 0; i < results.length; i++) {
-                        createMarker(results[i]);
-                    }
-                    map.setCenter(results[0].geometry.location);
-                    if (map) {
-                        map.setCenter(results[0].geometry.location);
-                    } else {
-                        console.error("Map is not initialized");
-                    }
-                }
+            // function callback(results, status) {
+            //     if (status == google.maps.places.PlacesServiceStatus.OK) {
+            //         for (var i = 0; i < results.length; i++) {
+            //             createMarker(results[i]);
+            //         }
+            //         map.setCenter(results[0].geometry.location);
+            //         if (map) {
+            //             map.setCenter(results[0].geometry.location);
+            //         } else {
+            //             console.error("Map is not initialized");
+            //         }
+            //     }
 
-                console.log(results);
-            }
+            //     console.log(results);
+            // }
 
-            function createMarker(place) {
-                if (!place.geometry || !place.geometry.location) return;
+    //         function createMarker(place) {
+    //             if (!place.geometry || !place.geometry.location) return;
 
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: place.geometry.location
-                });
+    //             var marker = new google.maps.Marker({
+    //                 map: map,
+    //                 position: place.geometry.location
+    //             });
 
-                google.maps.event.addListener(marker, 'click', function () {
-                    infowindow.setContent(place.name || '');
-                    infowindow.open(map);
-                });
-            }
+    //             google.maps.event.addListener(marker, 'click', function () {
+    //                 infowindow.setContent(place.name || '');
+    //                 infowindow.open(map);
+    //             });
+    //         }
 
-    window.initMap = initMap;
+    // window.initMap = initMap;
 
 
-    function addMarker(map, event) {
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(event._embedded.venues[0].location.latitude, event._embedded.venues[0].location.longitude),
-                    map: map
-                });
-                marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
-                console.log(marker);
-            }
+    // function addMarker(map, event) {
+    //             var marker = new google.maps.Marker({
+    //                 position: new google.maps.LatLng(event._embedded.venues[0].location.latitude, event._embedded.venues[0].location.longitude),
+    //                 map: map
+    //             });
+    //             marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+    //             console.log(marker);
+    //         }
     // var data; 
 
     // function getWeather(lat, lon, callback){

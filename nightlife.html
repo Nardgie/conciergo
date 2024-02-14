@@ -5,27 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script> -->
-    <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY&callback=console.debug&libraries=maps,marker&v=beta"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&family=Orbitron:wght@400;600&family=Sixtyfour&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.4/css/bulma.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <link rel="stylesheet" href="./bulma.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
 
-
+    <link rel="stylesheet" href="/Users/nardge/bootcamp/project1/project-1/bulma.css">
+    <link rel="stylesheet" href="./assets/css/night.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="anime.min.js"></script>
+
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    
     <script>
 
         $(function () {
@@ -62,34 +61,32 @@
         }
     </script>
 
-
-    <title>Conciergo- Your personal conert concierge</title>
-
+    <title>Plan It!</title>
 
     <style>
         /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-
+               * element that contains the map. */
+    
         .header {
             background-position: top right;
         }
-
+    
         .carbonads-wrapper {
             width: 330px;
             height: 120px;
         }
-
+    
         #carbonads * {
             margin: initial;
             padding: initial;
         }
-
+    
         #carbonads {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
                 Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial,
                 sans-serif;
         }
-
+    
         #carbonads {
             display: flex;
             max-width: 330px;
@@ -98,36 +95,36 @@
             padding: 5px;
             z-index: 100;
         }
-
+    
         #carbonads a {
             color: inherit;
             text-decoration: none;
         }
-
+    
         #carbonads a:hover {
             color: inherit;
         }
-
+    
         #carbonads span {
             position: relative;
             display: block;
             overflow: hidden;
         }
-
+    
         #carbonads .carbon-wrap {
             display: flex;
         }
-
+    
         #carbonads .carbon-img {
             display: block;
             margin: 0;
             line-height: 1;
         }
-
+    
         #carbonads .carbon-img img {
             display: block;
         }
-
+    
         #carbonads .carbon-text {
             font-size: 13px;
             padding: 10px;
@@ -135,7 +132,7 @@
             line-height: 1.5;
             text-align: center;
         }
-
+    
         #carbonads .carbon-poweredby {
             display: block;
             padding: 6px 8px;
@@ -151,7 +148,7 @@
             bottom: 0;
             right: 0;
         }
-
+    
         .cta-buttons {
             min-height: 110px;
             padding-bottom: 20px;
@@ -159,33 +156,33 @@
             justify-content: space-around;
             align-items: center;
         }
-
+    
         @media (max-width: 600px) {
             .cta-buttons {
                 flex-wrap: wrap;
             }
-
+    
             .cta-buttons .btn {
                 margin-bottom: 20px;
             }
         }
-
+    
         gmp-map {
             height: 80%;
             width: 50%;
-
+    
         }
-
+    
         .header {
             background-position: top right;
         }
-
+    
         @media screen and (max-width: 1500px) {
             .header {
                 background-size: auto;
             }
         }
-
+    
         .header {
             width: 100%;
             min-height: 450px;
@@ -194,11 +191,11 @@
             background: url(../img/header-bg.jpg) top center no-repeat fixed;
             background-size: 100%;
         }
-
+    
         .shift-text {
             margin: 80px auto 110px;
         }
-
+    
         .head-wrap {
             margin: 30px auto 30px;
             -webkit-transition: all 0.5s ease-out;
@@ -208,7 +205,7 @@
             transition: all 0.5s ease-out;
             text-align: center;
         }
-
+    
         .header .h1 {
             margin: 10px 0 20px;
             font-size: 5em;
@@ -216,7 +213,7 @@
             color: #fff;
             text-shadow: #000 6px 12px 20px;
         }
-
+    
         .text-editor-wrap {
             display: block;
             margin: auto;
@@ -231,7 +228,7 @@
             -o-transition: all 0.5s ease-out;
             transition: all 0.5s ease-out;
         }
-
+    
         h1.title-bar {
             padding: 5px 0;
             font-family: "Orbitron", sans-serif;
@@ -240,11 +237,11 @@
             text-shadow: rgba(255, 255, 255, 0.8) 0px 1px 0px;
             letter-spacing: 2px;
         }
-
+    
         .shift-text .text-body {
-            height: 250px;
+            height: 350px;
         }
-
+    
         .text-body {
             height: 250px;
             background-color: rgba(0, 0, 0, 0.85);
@@ -252,7 +249,7 @@
             color: #f0f0f0;
             text-shadow: #000 0px 1px 0px;
             font-family: "Orbitron", sans-serif;
-            font-size: 4em;
+            font-size: 2.5em;
             line-height: 2em;
             font-weight: 700;
             text-align: center;
@@ -264,7 +261,7 @@
             -o-transition: all 0.5s ease-out;
             transition: all 0.5s ease-out;
         }
-
+    
         /* Optional: Makes the sample page fill the window. */
         html,
         body {
@@ -274,34 +271,21 @@
             width: 100%;
             box-sizing: border-box;
         }
-
-        .container h2 {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #fff;
-            text-shadow: #000 6px 12px 20px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.85);
+    
+        #map {
+            width: 500px;
+            height: 400px;
         }
-
     </style>
-
+    
 </head>
 
-
-
-
-
-
-
-
-
 <body>
+    <!--NAv BAr Start-->
     <nav class="navbar is-dark">
         <div class="navbar-brand">
             <a class="navbar-item" href="./index.html">
-                <img src="./assets/images/Subject.png" alt="Logo" width="112"
-                    height="112px">
+                <img src="./assets/images/Subject.png" alt="Logo" width="112" height="112px">
                 CONCIERGO
             </a>
             <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
@@ -312,8 +296,7 @@
         </div>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="button is-info is-medium navbar-item"
-                    href="./plan.html">
+                <a class="button is-info is-medium navbar-item" href="./plan.html">
                     Plan It!
                 </a>
             </div>
@@ -337,125 +320,125 @@
             </div>
         </div>
     </nav>
+    <!--End OF NavBAr-->
 
-
-
-
-
-
-
-    <section class="hero is-large">
-        <wc-typed-js strings="Welcome To Conciergo., Concert? Concierge? No, Conciergo." loop="true">
-            <h1 class="typed" id="element"></h1>
-        </wc-typed-js>
-        <div class="hero-body">
-            <div class="container">
-                <div class="header">
-                    <div class="head-wrap shift-text">
-                        <h1 class="h1 title-bar">CONCIERGO</h1>
-                        <div class="text-editor-wrap">
-                            <div class="text-body">
-                                <span id="typed"></span><span class="typed-cursor">|</span>
+        <section class="hero is-large">
+            <wc-typed-js strings="Welcome To Conciergo., Concert? Concierge? No, Conciergo." loop="true">
+                <h1 class="typed" id="element"></h1>
+            </wc-typed-js>
+            <div class="hero-body">
+                <div class="container">
+                    <div class="header">
+                        <div class="head-wrap shift-text">
+                            <h1 class="h1 title-bar">CONCIERGO</h1>
+                            <div class="text-editor-wrap">
+                                <div class="text-body">
+                                    <span id="typed"></span><span class="typed-cursor">|</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
 
-
-
-
-
-    </section>
+    <!--Main Section-->
     <main>
-        <section class="section">
-            <div class="container has-text-centered" id="events">
-                <h1 class="title">Find The Right Concert Nearest To You</h1>
-                <br>
-                <!-- <h1 class="title">Concerts Near You</h1> -->
-                <div class="carousel" data-autoplay="false" data-pagination="true" data-navigation="true" id="carousel">
+
+        <!-- <div class="tile is-ancestor" id="click-here">
+
+        </div> -->
+        <div class="modal is-active columns is-hidden" id="col-2">
+            <div class="modal-background column is-6">
+
+                <div class="modal-card card events-card">
+                    <header class="modal-card-head card-header">
+                        <p class="modal-card-title card-header-title">
+                            Nightclubs Near You!
+                        </p>
+                        <a href="#" class="card-header-icon" aria-label="more options">
+                            <span class="icon">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </span></a>
+                    </header>
+                    <div class="modal-card-body card-table">
+                        <div class="modal-content content">
+                            <table class="table is-fullwidth is-striped">
+                                <tbody id="clubs">
+                                    
+                                                        
+                                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <footer class="modal-card-foot card-footer">
+                        <a href="#" class="card-footer-item">View All</a>
+                        <button class="card-header-icon" aria-label="more options">
+                            <span class="icon">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </footer>
+
                 </div>
             </div>
-        </section>
+        </div> 
 
-        <section class="section">
-            <div class="container has-text-centered">
-                <h2 class="title">Your Ticket To Fun!</h2>
+
+
+
+        <div class="container tile is-ancestor" id="venues">
+            <div class="tile has-text-centered is-horizontal center-position">
+                <div class="tile is-parent">
+                    <article class="tile is-child" style="display: flex; align-items: center; justify-content: center; background-size: cover;">
+                        <button class="submit " type="submit" id="runaway-btn">
+                            <p class="subtitle is-4">Click Here For More</p>
+                        </button>
+                    </article>
+                </div>
             </div>
-        </section>
+            <!--APPEND TO #VENUES-->
 
-        <div w-type="event-discovery" w-tmapikey="9xDaR1A6yRioMl6Xk2GG6ccydbFsnQZp"
-            w-googleapikey="AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY" w-keyword="" w-theme="oldschool"
-            w-colorscheme="light" w-width="450" w-height="800" w-size="45" w-border="2" w-borderradius="4" w-radius="25"
-            w-period="week" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid=""
-            w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_mqi7lr" w-source=""
-            w-branding="Ticketmaster" w-latlong="28.5383832,-81.3789269" w-classificationname="Music" class="ticket">
+        </div>
+        <br>
+        <br>
+
+        <div class="is-hidden" id="map">
+
         </div>
 
-        <br>
-
-        <div w-type="map" w-tmapikey="9xDaR1A6yRioMl6Xk2GG6ccydbFsnQZp"
-            w-googleapikey="AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY" w-keyword="" w-theme="simple" w-colorscheme="light"
-            w-width="620" w-height="286" w-size="25" w-border="1" w-borderradius="4" w-radius="25" w-period="week"
-            w-layout="horizontal" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid=""
-            w-proportion="custom" w-geoposition="on" w-source="" w-country="" w-latlong="28.5383832,-81.3789269"></div>
-
-        <br>
-        <br>
-        <hr>
-        <div w-type="countdown" w-tmapikey="9xDaR1A6yRioMl6Xk2GG6ccydbFsnQZp" w-id="G5eFZ9gnpxZzf"
-            w-theme="simple_countdown" w-width="620" w-height="252" w-borderradius="5" w-layout="horizontal"
-            w-proportion="custom" id="widget" class="carousel-item">
+    <footer>
+    
+    
+        <div>
+            <a href="./index.html"> <img class="is-flex is-align-self-center" src="./assets/images/Subject.png" alt="logo"
+                    width="100" height=50px"> </a>
         </div>
-        <p class=".is-hidden" id="location">location there</p>
-        <div id="map" class="is-hidden"></div>
-
-
-
-
-
-
-        <footer>
-        
-        
-            <div>
-                <a href="./index.html"> <img class="is-flex is-align-self-center" src="./assets/images/Subject.png" alt="logo"
-                        width="100" height=50px"> </a>
-            </div>
-        </footer>
-
-
-        <!-- <script type="module" src="dist/main.js" crossorigin></script> -->
-        <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
-        <script
-            src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/countdown/1.0.0/lib/main-widget.js"></script>
-        <script
-            src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/event-discovery/1.0.0/lib/main-widget.js"></script>
-
-
-        <script src="./script.js"></script>
-
-
-        <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY&libraries=visualization,places"
-            async defer></script>
-        <script
-            src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/map/1.0.0/lib/main-widget.js"></script>
+    </footer>
     </main>
-    <!-- <script src="./script.js"></script> ???-->
-
-
+    <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY"></script> -->
+    <script>
+        (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
+            key: "AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY",
+            v: "weekly",
+            // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+            // Add other bootstrap parameters as needed, using camel case.
+        });
+    </script>
     <script>
         var typed = new Typed('#typed', {
-            strings: ['Welcome To Conciergo', 'Concert?', 'Concierge?', 'No?', 'ConceierGO'],
+            strings: ['Not Looking For A Concert?', 'Wanna Grab Drinks Near Venue?', 'Looking to pre-game or post-game?', 'Yeah?', 'ConceierGO!!!', "whoops,^2000 This Page is still under construction"],
             typeSpeed: 50,
             smartBackspace: true, // this is a default
             loop: true
         });
         $("#typed").append(typed);
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3wvLnBaKeIBdhCqaNrp14KyEq9KB1pY&loading=async&libraries=places"></script>
+
+    <script src="./assets/js/nightlife.js"></script>
 </body>
 
 </html>
