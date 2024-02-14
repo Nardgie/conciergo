@@ -1,5 +1,4 @@
-/*! bulma.io v0.9.4 | MIT License | github.com/jgthms/bulma */
-/* Bulma Utilities */
+
 .button, .input, .textarea, .select select, .file-cta,
 .file-name, .pagination-previous,
 .pagination-next,
@@ -233,8 +232,7 @@ fieldset[disabled] .pagination-ellipsis {
   padding: 0;
 }
 
-/* Bulma Base */
-/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+
 html,
 body,
 p,

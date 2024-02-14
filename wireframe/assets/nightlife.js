@@ -1,100 +1,3 @@
-// // Setting it up so that if a user event is selected, it will show up on the top
-// //Still Working on that logic
-// document.addEventListener("DOMContentLoaded", function() {
-//     // Function to handle form submission
-//     function handleFormSubmission(event) {
-//         event.preventDefault();
-//         // Get selected event from the form
-//         var formData = new FormData(event.target);
-//         var selectedEvent = formData.get('selectedEvent');
-//         // Update the page with the selected event
-//         updateSelectedEvent(selectedEvent);
-//         // Fetch nearby places based on the selected event's location
-//         fetchNearbyPlaces(selectedEvent.location);
-//     }
-
-//     // Function to update the page with the selected event
-//     function updateSelectedEvent(event) {
-//         var eventNameElement = document.getElementById('eventName');
-//         eventNameElement.textContent = event.name;
-//         var eventDateElement = document.getElementById('eventDate');
-//         eventDateElement.textContent = event.date;
-//         var eventLocationElement = document.getElementById('eventLocation');
-//         eventLocationElement.textContent = event.location;
-//         // Additional event details can be updated here
-//     }
-
-//     // Function to fetch nearby restaurants and bars
-//     async function fetchNearbyPlaces(location) {
-//         try {
-//             // Make API request to fetch nearby places based on location
-//             var response = await fetch(`https://api.example.com/places?location=${location}`);
-//             var data = await response.json();
-//             displayNearbyPlaces(data);
-//         } catch (error) {
-//             console.error('Error fetching nearby places:', error);
-//         }
-//     }
-
-//     // Function to display nearby restaurants and bars
-//     function displayNearbyPlaces(places) {
-//         var restaurantList = document.getElementById('restaurantList');
-//         restaurantList.innerHTML = ''; // Clear previous results
-//         // Iterate over places and create HTML elements to display them
-//         places.forEach(place => {
-//             var placeElement = document.createElement('div');
-//             placeElement.classList.add('place');
-//             placeElement.innerHTML = `
-//                 <h3>${place.name}</h3>
-//                 <p>${place.address}</p>
-//             `;
-//             restaurantList.appendChild(placeElement);
-//         });
-//     }
-
-//     // Initial setup: Assuming user has already selected an event
-//     var selectedEvent = {
-//         name: 'Selected Event Name',
-//         date: 'Selected Event Date',
-//         location: 'Selected Event Location'
-//     };
-//     updateSelectedEvent(selectedEvent);
-//     fetchNearbyPlaces(selectedEvent.location);
-// });
-
-// // Define variables for event form and nearby restaurants list
-// var eventForm = document.getElementById('eventForm');
-// var restaurantList = document.getElementById('restaurantList');
-
-// // Function to fetch nearby restaurants and bars
-// function fetchNearbyPlaces() {
-//     // implement the logic here to fetch nearby places using APIs
-//     // Iterate through fetched places and create HTML elements to display them
-//     nearbyPlaces.forEach(function(place) {
-//         var placeElement = document.createElement('div');
-//         placeElement.classList.add('place');
-
-//         var nameElement = document.createElement('p');
-//         nameElement.textContent = place.name;
-//         placeElement.appendChild(nameElement);
-
-//         var distanceElement = document.createElement('p');
-//         distanceElement.textContent = 'Distance: ' + place.distance;
-//         placeElement.appendChild(distanceElement);
-
-//         var ratingElement = document.createElement('p');
-//         ratingElement.textContent = 'Rating: ' + place.rating;
-//         placeElement.appendChild(ratingElement);
-
-//         restaurantList.appendChild(placeElement);
-//     });
-// }
-
-// // Event listener for form submission
-// eventForm.addEventListener('submit', function(event) {
-//     event.preventDefault(); // Prevent default form submission behavior
-//     fetchNearbyPlaces(); // Fetch nearby places when form is submitted
-// });
 
 $(document).ready(function () {
   var gloablLat;
@@ -108,9 +11,7 @@ $(document).ready(function () {
   var item;
   var userCity;
 
-  // function getLocation() {
-  //     navigator.geolocation.getCurrentPosition(showPosition, showError);
-  // }
+
 
   function showPosition(data) {
     var token = "6417bd03e4fe33";
@@ -135,10 +36,6 @@ $(document).ready(function () {
         console.log("Longitude: " + globalLon); 
         console.log("Geolocation API Response:", data);
 
-        // var x = document.getElementById("location");
-        // x.innerHTML = "Latitude: " + gloablLat +
-        // "<br>Longitude: " + globalLon;
-
         $.ajax({
           type: "GET",
           url:
@@ -150,12 +47,7 @@ $(document).ready(function () {
           success: function (json) {
             console.log(json);
             console.log(json.page.totalElements + " events found.");
-            // console.log(response.json)
-            // var e = document.getElementById("events");
-            // e.innerHTML = " events found";
-            // json.page.totalElements + " events found.";
-            // showPosition();
-            // showEvents(json);
+      
             initMap(data, json);
             fetchNearbyPlaces(latlon);
             
@@ -170,7 +62,7 @@ $(document).ready(function () {
       });
   }
 
-  //function to show error if geolocation is not available
+ 
   function showError(error) {
     switch (error.code) {
       case error.PERMISSION_DENIED:
@@ -188,204 +80,6 @@ $(document).ready(function () {
     }
   }
 
-  //SHOW EVENTS!!!
-  //function to show events
-
-  //   function showEvents(json) {
-  //     // Calculate distances and store events with distance
-  //     var eventsWithDistances = json._embedded.events.map(function (event) {
-  //       var venue = event._embedded.venues[0];
-  //       var distance = haversineDistance(
-  //         gloablLat,
-  //         globalLon,
-  //         venue.location.latitude,
-  //         venue.location.longitude
-  //       ).toFixed(2);
-  //       item = {
-  //         event: event,
-  //         distance: distance,
-  //       };
-
-  //       return item;
-  //     });
-
-  //     // Sort events by distance
-  //     eventsWithDistances.sort(function (a, b) {
-  //       return parseFloat(a.distance) - parseFloat(b.distance);
-  //     });
-
-  //     //sort by date
-  //     eventsWithDistances.sort(function (a, b) {
-  //       return (
-  //         new Date(a.event.dates.start.dateTime) -
-  //         new Date(b.event.dates.start.dateTime)
-  //       );
-  //     });
-
-  //     // Append sorted events to the DOM
-  //     eventsWithDistances.forEach(function (item) {
-  //       var event = item.event;
-  //       console.log(event);
-  //       var venue = event._embedded.venues[0];
-  //       // console.log(venue);
-  //       var distance = item.distance;
-  //       var date = new Date(event.dates.start.dateTime).toLocaleDateString();
-  //       var imageUrl = event.images[1].url;
-  //       var priceRange = "";
-  //       if (event.priceRanges && event.priceRanges.length > 0) {
-  //         priceRange = `$${event.priceRanges[0].min} - $${event.priceRanges[0].max}`;
-  //       } else {
-  //         priceRange = "Price range not available";
-  //       }
-  //       var parkingInfo = venue.parking
-  //         ? venue.parking.summary
-  //         : "Parking information not available";
-  //       // <td>${venue.city.name}, ${venue.state.name}</p>
-  //       var eventHtml = `
-  //                         <tr class="card-content is-flex-wrap-wrap">
-  //                             <td>${event.name}</td>
-
-  //                             <td>${venue.name}</td>
-
-  //                             <td>${date}</td>
-  //                             <td>${distance} Miles away</td>
-  //                             <td class="level-right"><button class="button is-small is-primary add" data-event='${JSON.stringify(
-  //                               event
-  //                             ).replace(
-  //                               /'/g,
-  //                               "&apos;"
-  //                             )}'>Add To Plan</button></td>
-  //                         </tr>
-  //             `;
-
-  //       var $eventRow = $(eventHtml).appendTo("#concerts");
-  //       $eventRow.find(".add").data("event", event);
-  //       console.log($eventRow.find(".add").data("event"));
-  //     });
-  //     $(document).on("click", ".add", function (e) {
-  //       e.preventDefault();
-  //       var eventData = $(this).data("event");
-  //       console.log(eventData);
-  //       //Change the class of col-2 from is-hidden to is-visible
-  //     //   $("#col-2").removeClass("is-hidden");
-  //       //   var placeData = $(this).data("place");
-  //       if (eventData) {
-  //         displayEventCard(eventData); // Function to display the event card
-  //         // fetchNearbyPlaces(venueLat, venueLng);
-  //         console.log(fetchNearbyPlaces(venueLat, venueLng))
-
-  //         $(this).text("Added").attr("disabled", true); // Change button text and disable it
-  //         console.log(eventData);
-  //       } else {
-  //         console.error("No event data found for the clicked button.");
-  //       }
-
-  //     });
-  //   }
-
-  //DISPLAY EVENT CARDS!!
-  //   function displayEventCard(event) {
-  //     // Clear existing card or tile if you want only one at a time
-  //     //   $("#eventCardContainer").empty();
-  //     console.log("Event data received:", event); // Debugging log
-
-  //     // Check if the necessary properties exist in the event object
-  //     if (
-  //       !event._embedded ||
-  //       !event._embedded.venues ||
-  //       !event._embedded.venues[0]
-  //     ) {
-  //       console.error("Invalid event data structure:", event);
-  //       return; // Exit the function if the data structure is not as expected
-  //     }
-
-  //     var venue = event._embedded.venues[0];
-
-  //     var venue = event._embedded.venues[0];
-  //     var date = new Date(event.dates.start.dateTime).toLocaleDateString();
-  //     var imageUrl = event.images[1].url;
-  //     var priceRange = event.priceRanges
-  //       ? `$${event.priceRanges[0].min} - $${event.priceRanges[0].max}`
-  //       : "Price range not available";
-
-  //     venueLat = event._embedded.venues[0].location.latitude;
-  //     venueLng = event._embedded.venues[0].location.longitude;
-
-  //     // var cardHtml = `
-  //     //     <div class="tile is-ancestor has-text-centered ">
-
-  //     //         <div class="tile is-parent">
-  //     //             <article class="tile is-child box" style="background-image: url('${imageUrl}'); background-size: cover;">
-  //     //                     <p class="subtitle">${event.name}</p>
-  //     //                     <p class="subtitle">${venue.name}</p>
-  //     //                     <p class="subtitle">${date}</p>
-  //     //             </article>
-  //     //         </div>
-  //     //     </div>
-  //     //     `;
-
-  //     // $("#tileContainer").append(cardHtml); // Make sure to have a div with id="eventCardContainer" in your HTML
-  //     // Fetch nearby places
-  //     fetchNearbyPlaces(venueLat, venueLng);
-  //   }
-
-  //ADD PLACE TO PLAN FUNCTION!!
-  //   function addPlaceToPlan(place) {
-  //     console.log("Event data received:", place);
-  //     if (!place.name || !place.vicinity) {
-  //       console.error("Invalid event data structure:", place);
-  //       return; // Exit the function if the data structure is not as expected
-  //     }
-  //     clubTileHtml = `
-  //         <div class="tile is-ancestor has-text-centered ">
-
-  //             <div class="tile is-parent">
-  //                 <article class="tile is-child box">
-  //                         <p class="subtitle">${place.name}</p>
-  //                         <p class="subtitle">${place.vicinity}</p>
-
-  //                 </article>
-  //             </div>
-  //         </div>
-  //         `;
-  //     $("#tileContainer").append(clubTileHtml);
-  //   }
-  //  //   $(document).on("click", ".add", function (e) {
-  //   $(document).on("click", ".add.club", function (e) {
-  //     e.preventDefault();
-  //     var placeData = $(this).data("place");
-
-  //     // var place = JSON.parse(placeData);
-  //     if (placeData) {
-  //       addPlaceToPlan(placeData); // Function to display the event card
-  //       fetchNearbyPlaces(venueLat, venueLng);
-  //       $(this).text("Added").attr("disabled", true); // Change button text and disable it
-  //       console.log(placeData);
-  //     } else {
-  //       console.error("No event data found for the clicked button.");
-  //     }
-  //     console.log(placeData);
-  //   });
-
-  //   function haversineDistance(lat1, lon1, lat2, lon2) {
-  //     const R = 6371e3; // Earth's radius in meters
-  //     const phi1 = (lat1 * Math.PI) / 180; // Convert degrees to radians
-  //     const phi2 = (lat2 * Math.PI) / 180;
-  //     const deltaPhi = ((lat2 - lat1) * Math.PI) / 180;
-  //     const deltaLambda = ((lon2 - lon1) * Math.PI) / 180;
-
-  //     const a =
-  //       Math.sin(deltaPhi / 2) * Math.sin(deltaPhi / 2) +
-  //       Math.cos(phi1) *
-  //         Math.cos(phi2) *
-  //         Math.sin(deltaLambda / 2) *
-  //         Math.sin(deltaLambda / 2);
-  //     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-  //     const d = R * c; // Distance in meters
-  //     const dInMiles = d / 1609.34; // Convert meters to miles
-  //     return dInMiles;
-  //   }
 
 
   function haversineDistance(lat1, lon1, lat2, lon2) {
@@ -403,8 +97,8 @@ $(document).ready(function () {
         Math.sin(deltaLambda / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-    const d = R * c; // Distance in meters
-    const dInMiles = d / 1609.34; // Convert meters to miles
+    const d = R * c; 
+    const dInMiles = d / 1609.34; 
     return dInMiles;
   }
 
