@@ -51,14 +51,14 @@ function showPosition(data) {
         success: function (json) {
           console.log(json);
           console.log(json.page.totalElements + " events found.");
-        //   console.log(response.json)
+          //   console.log(response.json)
           var e = document.getElementById("events");
-        //   e.innerHTML = " events found";
-        //   json.page.totalElements + " events found.";
-        //   showPosition();
+          //   e.innerHTML = " events found";
+          //   json.page.totalElements + " events found.";
+          //   showPosition();
           showEvents(json);
-          initMap(data, json);
-        //   fetchNearbyPlaces(latlon);
+        //   initMap(data, json);
+          //   fetchNearbyPlaces(latlon);
         },
         error: function (xhr, status, err) {
           console.log(err);
@@ -127,6 +127,8 @@ function showEvents(json) {
     var date = new Date(event.dates.start.dateTime).toLocaleDateString();
     var imageUrl = event.images[1].url;
     var priceRange = "";
+    var id = event.id;
+    console.log(id);
     if (event.priceRanges && event.priceRanges.length > 0) {
       priceRange = `$${event.priceRanges[0].min} - $${event.priceRanges[0].max}`;
     } else {
@@ -166,33 +168,11 @@ function showEvents(json) {
                 </div>
             </div>
         `;
+        
 
-    // <article class="media">
-    //     <figure class="media-left">
-    //         <p class="image is-128x128">
-    //             <img src="${imageUrl}" alt="${event.name}">
-    //         </p>
-    //     </figure>
-    //     <div class="media-content">
-    //         <div class="content">
-    //             <p>
-    //                 <strong>${event.name}</strong><br>
-    //                 <small>${venue.name}, ${venue.city.name}</small><br>
-    //                 <small>${distance} Miles away</small><br>
-    //                 <small>${date}</small><br>
-    //                 <small>Price Range: ${priceRange}</small><br>
-    //                 <small>${parkingInfo}</small>
-    //             </p>
-    //         </div>
-    //         <nav class="level is-mobile">
-    //             <div class="level-right">
-    //                 <a class="button is-info" href="${event.url}" target="_blank">Get Tickets</a>
-    //             </div>
-    //         </nav>
-    //     </div>
-    // </article>`;
 
-    $(".carousel").append(eventHtml);
+    $("#carousel").append(eventHtml);
+    
   });
 
   //init bulma carousel
@@ -209,6 +189,7 @@ function showEvents(json) {
     navigationSwipe: true,
     pauseOnHover: false,
   });
+
 }
 
 function haversineDistance(lat1, lon1, lat2, lon2) {

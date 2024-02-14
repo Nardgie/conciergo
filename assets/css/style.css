@@ -14,15 +14,45 @@ p {
 
 
 main {
-    /* background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
-    background: url("./purpleClubbing.png");
+    /* background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") center; */
+    background: url("/assets/images/soft-lightConcert.png") center;
     background-size: cover;
     margin: 0;
 }
 
+
+
+.header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+
+    z-index: 1;
+    transform: translate(-50%, -50%);
+}
+
+/* .shift-text .text-editor-wrap .text-body {
+    height: 600px;
+    width: 800px;
+
+} */
+
+
 body {
     margin: 0;
     border: 0;
+}
+
+.hero {
+    background: url("/assets/images/vibrantConcert.png") center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar.is-dark {
+    max-width: 100%;
 }
 
 .navbar-item {
@@ -51,12 +81,16 @@ body {
 }
 
 
-
-.carousel-item .tile {
-    background: url("https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-size: cover;
-    background-color: aliceblue;
+.container h1 {
+    margin: 10px 0 20px;
+    font-size: 4em;
+    text-align: center;
+    color: #fff;
+    text-shadow: #000 0px 2px 4px;
+    font-family: "Orbitron", sans-serif;
 }
+
+
 
 #events {
     width: 600px;
@@ -69,7 +103,7 @@ body {
     border-radius: 50px;
 }
 
-.carousel {
+.carousel{
     height: 500px;
 }
 
@@ -82,7 +116,7 @@ body {
 
 
 .carousel-item .card {
-    width: 400px;
+    width: 450px;
     /* Adjust the width as needed */
     height: 550px;
     /* Adjust the height as needed */
@@ -166,3 +200,17 @@ body {
 /* .carousel-item .tile article {
     padding: 1rem;
 } */
+
+.ticket {
+    justify-content: center;
+    align-items: start;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    top: 10px;
+}
+
+/* footer {
+
+} */
+
+
